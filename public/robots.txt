@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://grogan.dev/sitemap.xml
+
+# Block admin/internal paths
+Disallow: /pricing/get-started
+Disallow: /_next/
+Disallow: /api/
