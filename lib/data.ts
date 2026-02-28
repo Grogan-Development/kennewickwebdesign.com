@@ -146,7 +146,7 @@ export const industries: IndustryItem[] = [
         slug: "medical-website-design",
         image: "/images/industries/industry_healthcare.png",
         description:
-            "HIPAA-aware websites with online booking, patient portals, and insurance information for clinics and practices.",
+            "Secure, patient-friendly websites with online booking, patient portals, and insurance information for clinics and practices.",
     },
     {
         title: "Restaurants & Food Service",

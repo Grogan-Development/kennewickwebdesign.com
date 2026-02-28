@@ -723,6 +723,56 @@ a:hover {
 }
 
 /* =========================================
+   ARTICLE / BLOG FORMATTING
+   ========================================= */
+.article-content {
+  font-size: var(--font-size-lg);
+  line-height: 1.8;
+  color: var(--color-text-main);
+}
+
+.article-content p {
+  margin-bottom: var(--spacing-6);
+}
+
+.article-content h2,
+.article-content h3 {
+  margin-top: var(--spacing-12);
+  margin-bottom: var(--spacing-6);
+  color: var(--color-white);
+}
+
+.article-callout {
+  padding: var(--spacing-6);
+  margin: var(--spacing-8) 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  color: var(--color-white);
+  line-height: 1.6;
+}
+
+.article-image-wrapper {
+  margin: var(--spacing-12) 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: var(--spacing-8);
+  padding-left: var(--spacing-6);
+}
+
+.article-content li {
+  margin-bottom: var(--spacing-2);
+}
+
+/* =========================================
    STATS COUNTER SECTION
    ========================================= */
 .stats-section {
@@ -1370,6 +1420,7 @@ h2 {
   flex-wrap: wrap;
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
+  margin-top: var(--spacing-12);
 }
 
 .trust-badge span {

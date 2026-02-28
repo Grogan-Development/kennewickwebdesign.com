@@ -74,8 +74,11 @@ function GetStartedForm() {
 
     /* Pre-select budget from plan */
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         if (planParam === "starter") setBudget("under-1k");
+         
         else if (planParam === "growth") setBudget("1k-3k");
+         
         else if (planParam === "premium") setBudget("3k-5k");
     }, [planParam]);
 

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/about" },
+    alternates: { canonical: "https://grogan.dev/about" },
     title: "About Us",
     description:
         "We're your local Kennewick web design experts. Learn why Tri-Cities businesses trust us to build premium, lead-generating websites.",
@@ -162,7 +161,7 @@ export default function AboutPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Let&apos;s Work Together</h2>
-                    <p>Ready to upgrade your web presence? Let's grab coffee and talk strategy.</p>
+                    <p>Ready to upgrade your web presence? Let&apos;s grab coffee and talk strategy.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
                             Book a Strategy Call <span className="icon-arrow">→</span>

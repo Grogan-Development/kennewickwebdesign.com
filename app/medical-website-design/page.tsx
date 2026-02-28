@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/medical-website-design" },
+    alternates: { canonical: "https://grogan.dev/medical-website-design" },
     title: "Medical & Dental Website Design — Kennewick / Tri-Cities",
     description:
         "Professional websites for Kennewick healthcare & dental practices. Online booking, patient info, and local SEO to attract new patients.",
@@ -51,13 +51,13 @@ export default function MedicalPage() {
                                     <CheckIcon /> Online appointment booking integration
                                 </li>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
-                                    <CheckIcon /> HIPAA-aware design considerations
+                                    <CheckIcon /> Patient privacy &amp; security focused
                                 </li>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
                                     <CheckIcon /> Provider bios with professional photos
                                 </li>
                                 <li style={{ padding: "12px 0", display: "flex" }}>
-                                    <CheckIcon /> Local SEO for "dentist Kennewick" etc.
+                                    <CheckIcon /> Local SEO for &quot;dentist Kennewick&quot; etc.
                                 </li>
                             </ul>
                         </div>
@@ -65,7 +65,7 @@ export default function MedicalPage() {
                         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                             <div className="card" style={{ padding: "3rem", textAlign: "center" }}>
                                 <h3 style={{ fontSize: "var(--font-size-2xl)", marginBottom: 16 }}>Our Guarantee</h3>
-                                <p className="card-text">We're a local Kennewick business. We promise transparent pricing, face-to-face service, and 30 days of free support after your site launches.</p>
+                                <p className="card-text">We&apos;re a local Kennewick business. We promise transparent pricing, face-to-face service, and 30 days of free support after your site launches.</p>
                             </div>
                         </div>
                     </div>

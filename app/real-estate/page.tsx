@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/real-estate" },
+    alternates: { canonical: "https://grogan.dev/real-estate" },
     title: "Real Estate Website Design — Kennewick / Tri-Cities",
     description:
         "Premium websites for Tri-Cities real estate agents and brokerages. IDX integration, neighborhood guides, and lead capture features.",
@@ -61,7 +61,7 @@ export default function RealEstatePage() {
                         <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
                             <div className="card" style={{ padding: "3rem", textAlign: "center" }}>
                                 <h3 style={{ fontSize: "var(--font-size-2xl)", marginBottom: 16 }}>Built to Convert</h3>
-                                <p className="card-text">Your website shouldn't just be an online business card. It needs to generate leads. We combine beautiful design with strategic lead capture elements specifically for real estate professionals.</p>
+                                <p className="card-text">Your website shouldn&apos;t just be an online business card. It needs to generate leads. We combine beautiful design with strategic lead capture elements specifically for real estate professionals.</p>
                             </div>
                         </div>
                     </div>

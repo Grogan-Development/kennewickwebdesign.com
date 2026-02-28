@@ -4,7 +4,7 @@ import Image from "next/image";
 import { industries } from "@/lib/data";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/industries" },
+    alternates: { canonical: "https://grogan.dev/industries" },
     title: "Industries We Serve",
     description:
         "We specialize in web design for Kennewick contractors, Tri-Cities wineries, and healthcare practices.",

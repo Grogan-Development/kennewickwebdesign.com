@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/services/ecommerce" },
+    alternates: { canonical: "https://grogan.dev/services/ecommerce" },
     title: "E-Commerce & Booking Systems — Kennewick & Tri-Cities",
     description:
         "Sell products online or accept bookings 24/7. E-commerce websites built for Kennewick and Tri-Cities businesses.",
@@ -34,7 +34,7 @@ export default function EcommercePage() {
                         <div>
                             <h2>Making It Easy for Customers to Buy</h2>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
-                                Whether you're a Kennewick boutique selling physcial products, or
+                                Whether you&apos;re a Kennewick boutique selling physcial products, or
                                 a Richland salon needing to book appointments, we build custom
                                 systems that remove the friction from buying.
                             </p>
@@ -77,7 +77,7 @@ export default function EcommercePage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Ready to Sell Online?</h2>
-                    <p>Let's discuss the best platform for your specific business needs.</p>
+                    <p>Let&apos;s discuss the best platform for your specific business needs.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
                             Book a Strategy Call <span className="icon-arrow">→</span>

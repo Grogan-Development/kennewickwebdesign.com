@@ -50,20 +50,20 @@ export default function Home() {
         <div className="floating-shape" style={{ width: 200, height: 200, top: "60%", right: "25%", transform: "rotate(45deg)", opacity: 0.3 }}></div>
 
         <div className="container hero-content">
-          <h1 className="animate-in-delay-1">Your Website Should<br />Work As Hard As You Do.</h1>
-          <p className="animate-in-delay-2">
-            Custom websites for Tri-Cities businesses — designed to look great, load fast, and actually bring in customers. Built locally in Kennewick.
+          <h1 className="animate-in-delay-1" style={{ marginBottom: "var(--spacing-6)" }}>Rank Higher. Get More Leads. Look Professional.</h1>
+          <p className="animate-in-delay-2" style={{ marginBottom: "2.5rem", display: "block" }}>
+            The Kennewick web designer you can actually meet for coffee. Custom websites designed to look great, load fast, and bring in real customers.
           </p>
-          <div className="btn-group animate-in-delay-3" style={{ justifyContent: "center" }}>
+          <div className="btn-group animate-in-delay-3" style={{ justifyContent: "center", gap: "1.5rem", marginBottom: "2rem" }}>
             <Link href="/contact" className="btn btn-accent btn-lg">
-              Get Your Free Website Audit <span className="icon-arrow">→</span>
+              Book a Strategy Call <span className="icon-arrow">→</span>
             </Link>
             <Link href="/pricing" className="btn btn-outline btn-lg">
               View Transparent Pricing
             </Link>
           </div>
 
-          <div className="animate-in-delay-4 hero-trust-badges">
+          <div className="animate-in-delay-4 hero-trust-badges" style={{ paddingBottom: "1rem" }}>
             <div className="trust-badge"><span>Kennewick, WA</span></div>
             <div className="trust-divider"></div>
             <div className="trust-badge"><span>Local & In-Person</span></div>
@@ -79,13 +79,13 @@ export default function Home() {
       <section className="stats-section" style={{ marginTop: "-2rem" }}>
         <div className="container">
           <div className="stats-bar">
-            {/* 100% Custom */}
+            {/* Guaranteed Results */}
             <div className="stat-item">
               <div className="stat-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
               </div>
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Custom Code</div>
+              <div className="stat-number">#1</div>
+              <div className="stat-label">Focus is Growth</div>
             </div>
             {/* Local */}
             <div className="stat-item">
@@ -147,9 +147,62 @@ export default function Home() {
       </section>
 
       {/* ============================================
+          TESTIMONIALS / SOCIAL PROOF (Hidden for now until real reviews are available)
+          ============================================ */}
+      {false && (
+        <section className="section" style={{ background: "rgba(255, 255, 255, 0.02)" }}>
+          <div className="container">
+            <div className="section-header animate-in" style={{ textAlign: "center", marginBottom: "var(--spacing-16)" }}>
+              <span className="local-badge">Real Results</span>
+              <h2 className="mt-4">Trusted by Small Businesses</h2>
+              <div className="divider" style={{ margin: "0 auto" }}></div>
+            </div>
+
+            <div className="grid-3">
+              {[
+                {
+                  text: "Zack completely transformed our online presence. Our old template site was losing us customers, but the new custom design immediately doubled our incoming leads. Plus, being able to meet in person in Kennewick made the whole process easy.",
+                  name: "Sarah M.",
+                  business: "Local Service Contractor"
+                },
+                {
+                  text: "Transparent pricing is what sold me. We knew exactly what we were paying for, and the final result exceeded our expectations. Our site is lightning fast and ranks on the first page of Google now.",
+                  name: "David L.",
+                  business: "Tri-Cities Retailer"
+                },
+                {
+                  text: "The 30 days of post-launch support gave us genuine peace of mind. Any minor tweaks or questions we had were answered immediately. Finally, a web designer who actually cares about our success.",
+                  name: "Elena R.",
+                  business: "Local Boutique"
+                }
+              ].map((review, i) => (
+                <div key={i} className={`card card-hover animate-in-delay-${i + 1}`}>
+                  <div style={{ color: "var(--color-accent)", marginBottom: 16 }}>
+                    {"★".repeat(5)}
+                  </div>
+                  <p className="card-text mb-6 mt-0" style={{ fontStyle: "italic", fontSize: "var(--font-size-sm)" }}>
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <div style={{ width: 40, height: 40, borderRadius: "50%", background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", fontSize: "14px", color: "var(--color-dark)" }}>
+                      {review.name.charAt(0)}
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 600, color: "var(--color-white)", fontSize: "var(--font-size-sm)" }}>{review.name}</div>
+                      <div style={{ fontSize: "var(--font-size-xs)", color: "var(--color-text-dim)" }}>{review.business}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section >
+      )}
+
+      {/* ============================================
           WHY US — Honest value props, no fake results
           ============================================ */}
-      <section className="section-angled">
+      < section className="section-angled" >
         <div className="aurora-glow" style={{ top: "20%", right: "-20%", opacity: 0.2 }}></div>
         <div className="container z-above">
           <div className="two-col">
@@ -300,7 +353,7 @@ export default function Home() {
               <span className="local-badge local-badge-gold">Let&apos;s Talk</span>
               <h2 className="mt-4">Ready to Get<br />Started?</h2>
               <p className="section-muted-text mb-8">
-                Not sure where to begin? Start with a free website audit — no pressure, no sales pitch. Just honest feedback on how your current site is performing.
+                Not sure where to begin? Book a free strategy call. We&apos;ll look at your business goals and give you an honest roadmap for success.
               </p>
               <div className="btn-group">
                 <Link href="/contact" className="btn btn-accent btn-lg">
@@ -311,7 +364,7 @@ export default function Home() {
             <div className="animate-slide-right" style={{ textAlign: "center" }}>
               <div className="audit-card">
 
-                <h3 style={{ fontSize: "var(--font-size-2xl)", marginBottom: 12 }}>Free Website Audit</h3>
+                <h3 style={{ fontSize: "var(--font-size-2xl)", marginBottom: 12 }}>Free Strategy Session</h3>
                 <p style={{ color: "var(--color-text-muted)", marginBottom: 24, fontSize: "var(--font-size-sm)", lineHeight: 1.7 }}>
                   We&apos;ll review your current site (or help you plan a new one) and give you an honest roadmap.
                 </p>

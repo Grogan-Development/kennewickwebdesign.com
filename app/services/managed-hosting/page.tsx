@@ -3,7 +3,7 @@ import Link from "next/link";
 import { managedHostingPlans } from "@/lib/data";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/services/managed-hosting" },
+    alternates: { canonical: "https://grogan.dev/services/managed-hosting" },
     title: "Managed Hosting Subscriptions — Tri-Cities & Kennewick",
     description:
         "Premium managed hosting starting at $25/mo. We handle server maintenance, security monitoring, and updates so you never have to worry about your site going offline.",
@@ -112,7 +112,7 @@ export default function ManagedHostingPage() {
                         <div>
                             <h2>Real Support from Real People</h2>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
-                                A website isn't a billboard you put up and forget about. It's
+                                A website isn&apos;t a billboard you put up and forget about. It&apos;s
                                 software that needs to be updated, secured, and backed up
                                 regularly. If you ignore it, it will eventually break or get
                                 hacked.
@@ -146,7 +146,7 @@ export default function ManagedHostingPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Protect Your Business Online</h2>
-                    <p>Don't wait until your site gets hacked. Secure it today.</p>
+                    <p>Don&apos;t wait until your site gets hacked. Secure it today.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
                             Get Started with Hosting <span className="icon-arrow">→</span>

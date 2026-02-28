@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/services/local-seo" },
+    alternates: { canonical: "https://grogan.dev/services/local-seo" },
     title: "Local SEO Services — Kennewick & Tri-Cities",
     description:
         "Dominate local search results. Google Business Profile setup, on-page SEO, and citations for Tri-Cities businesses.",
@@ -80,9 +80,9 @@ export default function LocalSEOPage() {
                         <div>
                             <h2>Stop Losing Jobs to Competitors</h2>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
-                                A beautiful website doesn't matter if nobody can find it. Local SEO is the engine that drives targeted, high-intent traffic to your business.
+                                A beautiful website doesn&apos;t matter if nobody can find it. Local SEO is the engine that drives targeted, high-intent traffic to your business.
                             </p>
-                            <h3 style={{ marginTop: 32, marginBottom: 16 }}>What's Included:</h3>
+                            <h3 style={{ marginTop: 32, marginBottom: 16 }}>What&apos;s Included:</h3>
                             <ul style={{ paddingLeft: 0, listStyle: "none" }}>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
                                     <CheckIcon /> Keyword Research (Kennewick & Tri-Cities focus)
@@ -105,7 +105,7 @@ export default function LocalSEOPage() {
             <section className="cta-banner">
                 <div className="bg-grid"></div>
                 <div className="container z-above">
-                    <h2>Find out why you aren't ranking</h2>
+                    <h2>Find out why you aren&apos;t ranking</h2>
                     <p>Get a free SEO audit showing exactly where you stand against competitors.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">

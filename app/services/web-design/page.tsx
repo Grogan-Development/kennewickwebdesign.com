@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/services/web-design" },
+    alternates: { canonical: "https://grogan.dev/services/web-design" },
     title: "Custom Web Design",
     description:
         "Custom, fast, lead-generating web design for Kennewick and Tri-Cities businesses.",
@@ -35,7 +35,7 @@ export default function WebDesignServicePage() {
                             <h2>Not Just a Digital Brochure</h2>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
                                 Most local business websites are just expensive digital brochures.
-                                They look okay, but they don't convince visitors to pick up the
+                                They look okay, but they don&apos;t convince visitors to pick up the
                                 phone or fill out a form.
                             </p>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
@@ -43,7 +43,7 @@ export default function WebDesignServicePage() {
                                 one goal in mind: generating qualified leads for your business.
                             </p>
 
-                            <h3 style={{ marginTop: 32, marginBottom: 16 }}>What's Included:</h3>
+                            <h3 style={{ marginTop: 32, marginBottom: 16 }}>What&apos;s Included:</h3>
                             <ul style={{ paddingLeft: 0, listStyle: "none" }}>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
                                     <CheckIcon /> Custom Premium Design (No generic templates)

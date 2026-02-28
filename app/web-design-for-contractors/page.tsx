@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/web-design-for-contractors" },
+    alternates: { canonical: "https://grogan.dev/web-design-for-contractors" },
     title: "Web Design for Contractors — Kennewick & Tri-Cities",
     description:
         "Lead-generating websites for Kennewick contractors. Roofers, electricians, plumbers, HVAC — built by a local expert who understands your business.",
@@ -71,7 +71,7 @@ export default function ContractorsPage() {
                                     <CheckIcon /> Professional, modern design that builds instant trust
                                 </li>
                                 <li style={{ padding: "16px 0", borderBottom: "1px solid rgba(16, 185, 129, 0.1)", display: "flex" }}>
-                                    <CheckIcon /> SEO-optimized for "roofer Kennewick", "electrician near me", etc.
+                                    <CheckIcon /> SEO-optimized for &quot;roofer Kennewick&quot;, &quot;electrician near me&quot;, etc.
                                 </li>
                                 <li style={{ padding: "16px 0", borderBottom: "1px solid rgba(16, 185, 129, 0.1)", display: "flex" }}>
                                     <CheckIcon /> Click-to-call buttons and lead forms on every page

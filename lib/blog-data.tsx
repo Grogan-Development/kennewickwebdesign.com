@@ -60,10 +60,10 @@ export const blogPosts: BlogPost[] = [
                         a trustworthy business.
                     </li>
                 </ul>
-                <blockquote>
+                <div className="article-callout">
                     <strong>Bottom line:</strong> If your web designer can&apos;t clearly explain their SEO strategy for your site, that&apos;s
                     a red flag. You should demand specifics — not vague promises.
-                </blockquote>
+                </div>
 
                 <h2>What Is a Lighthouse Score?</h2>
                 <p>
@@ -94,10 +94,24 @@ export const blogPosts: BlogPost[] = [
                     Any web designer worth their fee should be able to deliver a site scoring <strong>90+ across all four
                         categories</strong> on Lighthouse. If they can&apos;t, or they don&apos;t even know what Lighthouse is, walk away.
                 </p>
-                <blockquote>
+
+                <div className="article-image-wrapper" style={{ position: "relative", height: 300, background: "linear-gradient(135deg, rgba(59,130,246,0.1), rgba(245,158,11,0.05))", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ textAlign: "center" }}>
+                        <div style={{ display: "flex", gap: 20, justifyContent: "center", marginBottom: 16 }}>
+                            {[100, 98, 100, 100].map((score, idx) => (
+                                <div key={idx} style={{ width: 80, height: 80, borderRadius: "50%", border: "4px solid #0cce6b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", fontWeight: "bold", color: "#0cce6b" }}>
+                                    {score}
+                                </div>
+                            ))}
+                        </div>
+                        <span style={{ color: "var(--color-text-muted)" }}>Performance • Accessibility • Best Practices • SEO</span>
+                    </div>
+                </div>
+
+                <div className="article-callout">
                     <strong>How to check yourself:</strong> Open Google Chrome, go to your website, press <code>F12</code> on your
                     keyboard, click the &ldquo;Lighthouse&rdquo; tab at the top, and click &ldquo;Analyze page load.&rdquo; It takes about 30 seconds.
-                </blockquote>
+                </div>
 
                 <h2>Headers, Footers, and Navigation: Why Structure Matters</h2>
                 <p>
@@ -117,11 +131,11 @@ export const blogPosts: BlogPost[] = [
                     social media icons. Many businesses overlook the footer, but it serves a critical SEO purpose: it&apos;s where
                     Google looks for your <strong>NAP</strong> (Name, Address, Phone number) to verify your local business info.
                 </p>
-                <blockquote>
+                <div className="article-callout">
                     <strong>Pro tip:</strong> Make sure your business name, address, and phone number are <em>identical</em> in your
                     footer, your Google Business Profile, and every online directory you&apos;re listed on. Inconsistencies hurt your
                     local search ranking.
-                </blockquote>
+                </div>
 
                 <h2>What Are Cookies (and Why Does Every Website Ask About Them)?</h2>
                 <p>
@@ -262,6 +276,10 @@ export const blogPosts: BlogPost[] = [
                     The best web designer is the one who can explain all of this to you in plain English <em>and</em> deliver it.
                     You shouldn&apos;t need a computer science degree to understand what you&apos;re paying for.
                 </p>
+
+                <div className="article-callout" style={{ borderColor: 'var(--color-primary)' }}>
+                    Ready to build a site that actually passes the test? <strong><a href="/contact">Book a free strategy call today.</a></strong>
+                </div>
             </>
         ),
     },
@@ -307,11 +325,11 @@ export const blogPosts: BlogPost[] = [
                         product count, payment integrations, custom functionality, and database needs.
                     </li>
                 </ul>
-                <blockquote>
+                <div className="article-callout">
                     <strong>Reality check:</strong> If someone quotes you $500 for a &ldquo;custom&rdquo; website, you&apos;re
                     getting a template with your logo on it. Custom means custom — designed specifically for your business,
                     your audience, and your goals.
-                </blockquote>
+                </div>
 
                 <h2>What Drives the Price Up (and Down)</h2>
                 <p>
@@ -399,11 +417,11 @@ export const blogPosts: BlogPost[] = [
                     <li>What happens if I need changes after launch?</li>
                     <li>Can I see Lighthouse scores from sites you&apos;ve built for other clients?</li>
                 </ul>
-                <blockquote>
+                <div className="article-callout">
                     <strong>Bottom line:</strong> A website is an investment, not an expense. A $7,000 site that brings in
                     3 new customers a month pays for itself within 60 days for most local businesses. A $500 site that
                     nobody finds on Google costs you money every day it&apos;s live.
-                </blockquote>
+                </div>
             </>
         ),
     },
@@ -453,11 +471,11 @@ export const blogPosts: BlogPost[] = [
                     <li>If a listing exists, click &ldquo;Claim this business&rdquo; and follow the verification steps</li>
                     <li>If no listing exists, click &ldquo;Add your business to Google&rdquo; and fill in the details</li>
                 </ul>
-                <blockquote>
+                <div className="article-callout" style={{ borderColor: '#ef4444' }}>
                     <strong>Important:</strong> Use a Google account that <em>you</em> own and will always have access to.
                     If someone else sets this up on their account, they control your listing — and your reviews, photos,
                     and responses go with them if you part ways.
-                </blockquote>
+                </div>
 
                 <h2>Step 2: Verify Your Business</h2>
                 <p>
@@ -543,10 +561,10 @@ export const blogPosts: BlogPost[] = [
                     <li>Include a review link in your email signature and on your website</li>
                     <li><strong>Respond to every review</strong> — positive and negative. Google tracks this.</li>
                 </ul>
-                <blockquote>
+                <div className="article-callout" style={{ borderColor: '#ef4444' }}>
                     <strong>Never buy fake reviews.</strong> Google&apos;s detection is sophisticated and getting better.
                     Businesses caught buying reviews get their profiles suspended or removed entirely.
-                </blockquote>
+                </div>
 
                 <h2>Step 6: Post Updates Regularly</h2>
                 <p>
