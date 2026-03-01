@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-data";
 
+export const dynamic = "force-static";
+
 const BASE = "https://grogan.dev";
 
 export default function sitemap(): MetadataRoute.Sitemap {
