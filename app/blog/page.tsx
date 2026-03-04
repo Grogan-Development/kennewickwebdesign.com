@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog-data";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/blog" },
+    alternates: { canonical: "/blog" },
     title: "Blog — Web Design & SEO Tips for Kennewick Businesses",
     description:
         "Web design, SEO, and digital marketing tips for Kennewick & Tri-Cities businesses. Actionable advice from your local web expert.",
@@ -282,12 +283,10 @@ export default function BlogPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Want to skip the research?</h2>
-                    <p>
-                        Get a free website audit and find out exactly where your current site stands — no jargon, no pressure.
-                    </p>
+                    <p>Book a consultation if you want help turning these ideas into a concrete plan for your own site.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

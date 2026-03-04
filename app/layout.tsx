@@ -3,7 +3,7 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
+import { absoluteUrl, site } from "@/lib/site";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -18,13 +18,13 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://grogan.dev"),
+  metadataBase: new URL(site.url),
   title: {
     default: "Kennewick Web Design — Custom Websites for Tri-Cities Businesses",
     template: "%s | Kennewick Web Design",
   },
   description:
-    "Custom websites for Kennewick & Tri-Cities businesses. Web design, local SEO, and ongoing care plans from your local Kennewick neighbor. Transparent pricing, no templates.",
+    "Custom websites for businesses in Kennewick, Pasco, and Richland. Clear pricing, direct communication, and sites built to help visitors call, book, or request a quote.",
   keywords: [
     "web design Kennewick",
     "Tri-Cities website design",
@@ -40,7 +40,23 @@ export const metadata: Metadata = {
     siteName: "Kennewick Web Design",
     title: "Kennewick Web Design — Custom Websites for Tri-Cities Businesses",
     description:
-      "Custom websites for Kennewick & Tri-Cities businesses. Built by your local Kennewick neighbor. Transparent pricing, no templates.",
+      "Custom websites for businesses in Kennewick, Pasco, and Richland. Clear pricing, direct communication, and practical sites built to convert visitors into inquiries.",
+    url: site.url,
+    images: [
+      {
+        url: absoluteUrl("/og-image.png"),
+        width: 1200,
+        height: 630,
+        alt: "Kennewick Web Design",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kennewick Web Design — Custom Websites for Tri-Cities Businesses",
+    description:
+      "Custom websites for businesses in Kennewick, Pasco, and Richland. Clear pricing and direct communication from a local builder.",
+    images: [absoluteUrl("/og-image.png")],
   },
   robots: {
     index: true,
@@ -52,18 +68,18 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Greyson Grogan | Tri-Cities Web Design",
-  "image": "https://grogan.dev/og-image.jpg",
-  "url": "https://grogan.dev",
-  "telephone": "+15094263172",
-  "email": "info@grogan.dev",
-  "priceRange": "$$$",
+  "name": `${site.name} by ${site.founderName}`,
+  "image": absoluteUrl("/og-image.png"),
+  "url": site.url,
+  "telephone": site.phoneHref,
+  "email": site.email,
+  "priceRange": "$750-$2,500",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "",
-    "addressLocality": "Kennewick",
-    "addressRegion": "WA",
-    "postalCode": "99336",
+    "addressLocality": site.city,
+    "addressRegion": site.state,
+    "postalCode": site.postalCode,
     "addressCountry": "US"
   },
   "geo": {
@@ -71,7 +87,7 @@ const localBusinessSchema = {
     "latitude": 46.2114,
     "longitude": -119.1373
   },
-  "areaServed": ["Kennewick", "Pasco", "Richland", "West Richland"],
+  "areaServed": site.serviceArea,
   "sameAs": [
     "https://github.com/ggrogan"
   ]
@@ -83,7 +99,7 @@ const serviceSchema = {
   serviceType: "Web Design and Development",
   provider: {
     "@type": "LocalBusiness",
-    name: "Kennewick Web Design",
+    name: site.name,
   },
   areaServed: {
     "@type": "Place",
@@ -99,7 +115,7 @@ const serviceSchema = {
           "@type": "Service",
           name: "Starter Package",
           description:
-            "Custom one-page website, mobile-responsive, basic on-page SEO, 30-day support",
+            "3 to 5 page custom website with mobile-responsive development, on-page SEO basics, and 30-day post-launch support",
         },
         price: "750",
         priceCurrency: "USD",
@@ -110,7 +126,7 @@ const serviceSchema = {
           "@type": "Service",
           name: "Growth Package",
           description:
-            "Multi-page website, full local SEO setup, Google Business Profile optimization, lead funnels",
+            "5 to 8 page custom website with local SEO setup, Google Business Profile optimization, and stronger conversion paths",
         },
         price: "1250",
         priceCurrency: "USD",
@@ -121,7 +137,7 @@ const serviceSchema = {
           "@type": "Service",
           name: "Premium Package",
           description:
-            "E-commerce/booking, 12-month care plan, advanced analytics, priority support",
+            "Expanded custom website with booking or ecommerce setup, advanced SEO planning, and extended launch support",
         },
         price: "2500",
         priceCurrency: "USD",

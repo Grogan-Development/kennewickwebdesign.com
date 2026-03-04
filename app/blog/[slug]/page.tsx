@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { blogPosts } from "@/lib/blog-data";
 import Link from "next/link";
 import { Metadata } from "next";
+import { site } from "@/lib/site";
 
 export async function generateStaticParams() {
     return blogPosts.map((post) => ({
@@ -22,6 +23,7 @@ export async function generateMetadata({
     return {
         title: `${post.title} | Kennewick Web Design Blog`,
         description: post.excerpt,
+        alternates: { canonical: `/blog/${post.slug}` },
     };
 }
 
@@ -36,6 +38,13 @@ export default async function BlogPostPage({
     if (!post) {
         notFound();
     }
+
+    const authorInitials = post.author
+        .split(" ")
+        .map((part) => part.charAt(0))
+        .join("")
+        .slice(0, 2)
+        .toUpperCase();
 
     return (
         <>
@@ -152,7 +161,7 @@ export default async function BlogPostPage({
                                 flexShrink: 0,
                             }}
                         >
-                            KW
+                            {authorInitials}
                         </div>
                         <div>
                             <span style={{ fontWeight: 700, color: "var(--color-white)", display: "block", fontSize: "var(--font-size-sm)" }}>
@@ -185,7 +194,7 @@ export default async function BlogPostPage({
                     </p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Book a Strategy Call <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

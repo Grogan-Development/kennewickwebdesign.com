@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://grogan.dev/sitemap.xml
+Sitemap: https://kennewickwebdesign.com/sitemap.xml
 
 # Block admin/internal paths
 Disallow: /pricing/get-started

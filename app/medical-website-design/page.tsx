@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-    alternates: { canonical: "https://grogan.dev/medical-website-design" },
+    alternates: { canonical: "/medical-website-design" },
     title: "Medical & Dental Website Design — Kennewick / Tri-Cities",
     description:
-        "Professional websites for Kennewick healthcare & dental practices. Online booking, patient info, and local SEO to attract new patients.",
+        "Professional websites for healthcare and dental practices that need clearer trust signals, cleaner information architecture, and easy appointment flows.",
 };
 
 const CheckIcon = () => (
@@ -51,7 +52,7 @@ export default function MedicalPage() {
                                     <CheckIcon /> Online appointment booking integration
                                 </li>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
-                                    <CheckIcon /> Patient privacy &amp; security focused
+                                    <CheckIcon /> Clear services, locations, and appointment information
                                 </li>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
                                     <CheckIcon /> Provider bios with professional photos
@@ -79,7 +80,7 @@ export default function MedicalPage() {
                     <p>We understand healthcare. Let&apos;s build a site that grows your practice.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Practice Site Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import { site } from "@/lib/site";
 
 export default function Footer() {
     return (
@@ -12,12 +13,13 @@ export default function Footer() {
                             <Logo />
                         </div>
                         <p className="footer-description">
-                            Premium web design and local SEO for Kennewick, Pasco, and Richland businesses. Built locally in Kennewick.
+                            Custom websites, SEO foundations, and ongoing support for businesses in Kennewick, Pasco, Richland, and the surrounding Tri-Cities.
                         </p>
                         <div className="footer-contact">
-                            Kennewick, WA<br />
-                            (509) 426-3172<br />
-                            <a href="mailto:info@grogan.dev">info@grogan.dev</a>
+                            Built by {site.founderName}<br />
+                            {site.city}, {site.state}<br />
+                            <a href={`tel:${site.phoneHref}`}>{site.phoneDisplay}</a><br />
+                            <a href={`mailto:${site.email}`}>{site.email}</a>
                         </div>
                     </div>
 
@@ -37,6 +39,7 @@ export default function Footer() {
                         <h4>Company</h4>
                         <ul className="footer-links">
                             <li><Link href="/about" className="footer-link">About Us</Link></li>
+                            <li><Link href="/portfolio" className="footer-link">Portfolio</Link></li>
                             <li><Link href="/pricing" className="footer-link">Pricing</Link></li>
                             <li><Link href="/blog" className="footer-link">Blog</Link></li>
                             <li><Link href="/contact" className="footer-link">Contact</Link></li>
@@ -46,7 +49,7 @@ export default function Footer() {
 
                 <div className="footer-bottom footer-bottom-content">
                     <p className="footer-copyright">
-                        © 2026 Grogan Development Group LLC. All rights reserved.
+                        © 2026 {site.legalName}. All rights reserved.
                     </p>
                     <div className="footer-legal-links">
                         <Link href="/privacy" className="footer-legal-link">Privacy Policy</Link>

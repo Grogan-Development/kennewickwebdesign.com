@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/terms" },
     title: "Terms of Service",
     description:
         "Terms of Service for Grogan Development Group LLC — Kennewick Web Design. Review our terms for web design and development services.",
@@ -26,7 +28,7 @@ export default function TermsOfServicePage() {
                         <div className="legal-content" style={{ color: "var(--color-text-muted)", lineHeight: 1.8, fontSize: "0.95rem" }}>
 
                             <p style={{ marginBottom: "2rem" }}>
-                                These Terms of Service (&quot;Terms&quot;) govern your use of the grogan.dev website (the &quot;Site&quot;)
+                                These Terms of Service (&quot;Terms&quot;) govern your use of the kennewickwebdesign.com website (the &quot;Site&quot;)
                                 and the web design, development, and related services (&quot;Services&quot;) provided by
                                 Grogan Development Group LLC (&quot;Company,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;),
                                 a Washington State limited liability company based in Kennewick, WA.
@@ -135,9 +137,9 @@ export default function TermsOfServicePage() {
                             </p>
                             <p style={{ marginTop: "1rem" }}>
                                 <strong>Grogan Development Group LLC</strong><br />
-                                Kennewick, WA 99336<br />
-                                <a href="mailto:info@grogan.dev">info@grogan.dev</a><br />
-                                (509) 426-3172
+                                {site.city}, {site.state} {site.postalCode}<br />
+                                <a href={`mailto:${site.email}`}>{site.email}</a><br />
+                                {site.phoneDisplay}
                             </p>
                         </div>
                     </div>

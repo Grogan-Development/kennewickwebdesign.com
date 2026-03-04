@@ -5,6 +5,11 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { pricingPackages } from "@/lib/data";
 import {
+    submitInquiry,
+    type ManualContactDetails,
+} from "@/lib/inquiries";
+import { site } from "@/lib/site";
+import {
     Globe,
     Pencil,
     ShoppingCart,
@@ -70,7 +75,11 @@ function GetStartedForm() {
     const [phone, setPhone] = useState("");
     const [business, setBusiness] = useState("");
     const [website, setWebsite] = useState("");
+    const [company, setCompany] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [manualContact, setManualContact] = useState<ManualContactDetails | null>(null);
 
     /* Pre-select budget from plan */
     useEffect(() => {
@@ -90,10 +99,42 @@ function GetStartedForm() {
         return false;
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // TODO: Replace with actual form submission endpoint
-        setSubmitted(true);
+    const handleSubmit = async () => {
+        if (!canAdvance() || isSubmitting) return;
+
+        setIsSubmitting(true);
+        setErrorMessage("");
+        setManualContact(null);
+
+        const response = await submitInquiry({
+            source: "project",
+            name,
+            email,
+            phone,
+            business,
+            website,
+            message: description,
+            projectType,
+            budget,
+            timeline,
+            plan: planParam || undefined,
+            company,
+            page: `${window.location.pathname}${window.location.search}`,
+            referrer: document.referrer || undefined,
+        });
+
+        setIsSubmitting(false);
+
+        if (response.ok) {
+            setSubmitted(true);
+            return;
+        }
+
+        setErrorMessage(
+            response.message ||
+            "We could not deliver your project details automatically. Use the backup contact options below.",
+        );
+        setManualContact(response.manualContact ?? null);
     };
 
     /* ─────────────────────────────
@@ -114,7 +155,7 @@ function GetStartedForm() {
                         We Got Your Details!
                     </h1>
                     <p style={{ color: "var(--color-text-muted)", fontSize: "var(--font-size-lg)", maxWidth: 520, margin: "0 auto 32px" }}>
-                        We&apos;ll review your project and reach out within 24 hours. No pressure, no obligations.
+                        Thanks for the detail. We&apos;ll review the project and reply within one business day.
                     </p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/" className="btn btn-primary">Back to Home</Link>
@@ -215,7 +256,23 @@ function GetStartedForm() {
 
             {/* ═══ FORM BODY ═══ */}
             <div className="get-started-body">
-                <form onSubmit={handleSubmit} style={{ width: "100%", maxWidth: 640 }}>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    void handleSubmit();
+                }} style={{ width: "100%", maxWidth: 640 }}>
+                    <div style={{ position: "absolute", left: "-9999px", opacity: 0, pointerEvents: "none" }} aria-hidden="true">
+                        <label htmlFor="company">Company</label>
+                        <input
+                            id="company"
+                            name="company"
+                            type="text"
+                            autoComplete="off"
+                            tabIndex={-1}
+                            value={company}
+                            onChange={(e) => setCompany(e.target.value)}
+                        />
+                    </div>
+
                     {/* ─── STEP 1: Project Type ─── */}
                     {step === 1 && (
                         <div>
@@ -323,13 +380,13 @@ function GetStartedForm() {
                         <div>
                             <h2 className="get-started-step-title">How do we reach you?</h2>
                             <p className="get-started-step-desc">
-                                We&apos;ll reply within 24 hours. No spam, no sales pitch.
+                                You&apos;ll hear directly from {site.founderName} within one business day.
                             </p>
                             <div style={{ display: "grid", gap: 18 }}>
                                 <div className="get-started-row">
                                     <div>
                                         <label className="form-label">Full Name *</label>
-                                        <input type="text" className="form-input" value={name} onChange={(e) => setName(e.target.value)} placeholder="Zackariah Grogan" required />
+                                        <input type="text" className="form-input" value={name} onChange={(e) => setName(e.target.value)} placeholder="John Smith" required />
                                     </div>
                                     <div>
                                         <label className="form-label">Business Name</label>
@@ -358,6 +415,32 @@ function GetStartedForm() {
 
             {/* ═══ BOTTOM BAR ═══ */}
             <div className="get-started-bottom">
+                {(errorMessage || manualContact) && (
+                    <div
+                        style={{
+                            marginBottom: 16,
+                            padding: "1rem 1.1rem",
+                            borderRadius: "var(--radius-lg)",
+                            border: "1px solid rgba(245, 158, 11, 0.3)",
+                            background: "rgba(245, 158, 11, 0.08)",
+                        }}
+                    >
+                        <p style={{ margin: 0, color: "var(--color-white)", fontWeight: 600 }}>
+                            {errorMessage}
+                        </p>
+                        {manualContact && (
+                            <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 14 }}>
+                                <a href={manualContact.mailto} className="btn btn-outline btn-sm">
+                                    Email {manualContact.email}
+                                </a>
+                                <a href={`tel:${site.phoneHref}`} className="btn btn-outline btn-sm">
+                                    Call {manualContact.phone}
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                )}
+
                 {/* Plan summary (compact) */}
                 {meta && planParam !== "custom" && (() => {
                     const pkg = pricingPackages.find((p) => p.name.toLowerCase() === planParam);
@@ -403,12 +486,13 @@ function GetStartedForm() {
                     ) : (
                         <button
                             type="button"
-                            onClick={handleSubmit as unknown as () => void}
+                            onClick={() => void handleSubmit()}
                             className="btn btn-accent btn-lg"
-                            disabled={!canAdvance()}
-                            style={{ opacity: canAdvance() ? 1 : 0.4 }}
+                            disabled={!canAdvance() || isSubmitting}
+                            style={{ opacity: canAdvance() && !isSubmitting ? 1 : 0.4 }}
                         >
-                            Submit <ArrowRight size={18} style={{ marginLeft: 8 }} />
+                            {isSubmitting ? "Sending..." : "Submit"}
+                            <ArrowRight size={18} style={{ marginLeft: 8 }} />
                         </button>
                     )}
                 </div>

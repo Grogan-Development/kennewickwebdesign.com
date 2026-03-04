@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-    alternates: { canonical: "https://grogan.dev/services/ecommerce" },
-    title: "E-Commerce & Booking Systems — Kennewick & Tri-Cities",
+    alternates: { canonical: "/services/ecommerce" },
+    title: "E-Commerce & Booking",
     description:
-        "Sell products online or accept bookings 24/7. E-commerce websites built for Kennewick and Tri-Cities businesses.",
+        "E-commerce and booking systems for businesses that need online ordering, scheduling, or checkout flows that feel polished and easy to use.",
 };
 
 const CheckIcon = () => (
@@ -22,8 +23,7 @@ export default function EcommercePage() {
                     <span className="local-badge local-badge-gold">Online Sales</span>
                     <h1 className="mt-4">E-Commerce &amp; Booking Systems</h1>
                     <p>
-                        Turn your website into a 24/7 salesperson. Accept payments, sell
-                        products, and book appointments while you sleep.
+                        Add ordering, checkout, or scheduling flows that make it easier for customers to buy or book without friction.
                     </p>
                 </div>
             </section>
@@ -34,9 +34,7 @@ export default function EcommercePage() {
                         <div>
                             <h2>Making It Easy for Customers to Buy</h2>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
-                                Whether you&apos;re a Kennewick boutique selling physcial products, or
-                                a Richland salon needing to book appointments, we build custom
-                                systems that remove the friction from buying.
+                                Whether you&apos;re a boutique selling physical products or a service business that needs a better booking flow, the real job is reducing confusion and removing unnecessary steps.
                             </p>
 
                             <h3 style={{ marginTop: 32, marginBottom: 16 }}>What We Build:</h3>
@@ -80,7 +78,7 @@ export default function EcommercePage() {
                     <p>Let&apos;s discuss the best platform for your specific business needs.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Book a Strategy Call <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

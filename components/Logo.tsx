@@ -1,15 +1,9 @@
 import Link from "next/link";
+import { site } from "@/lib/site";
 
-/**
- * Grogan.dev Wordmark Logo
- *
- * A pure typographic logo where the dot/period is the signature brand element —
- * rendered as a glowing accent-colored dot that anchors the design.
- * "grogan" is bold white, "dev" is lighter weight in a muted tone,
- * and the dot bridges them with a pop of brand color.
- */
 export default function Logo({ compact = false }: { compact?: boolean }) {
-    const size = compact ? "1.1rem" : "1.35rem";
+    const titleSize = compact ? "0.92rem" : "1rem";
+    const subtitleSize = compact ? "0.62rem" : "0.68rem";
 
     return (
         <Link
@@ -17,14 +11,15 @@ export default function Logo({ compact = false }: { compact?: boolean }) {
             style={{
                 textDecoration: "none",
                 display: "inline-flex",
-                alignItems: "baseline",
-                gap: 0,
+                flexDirection: "column",
+                gap: 2,
+                lineHeight: 1,
             }}
+            aria-label={site.name}
         >
-            {/* "grogan" — bold, white, tight tracking */}
             <span
                 style={{
-                    fontSize: size,
+                    fontSize: titleSize,
                     fontWeight: 700,
                     color: "var(--color-white)",
                     letterSpacing: "-0.03em",
@@ -32,38 +27,20 @@ export default function Logo({ compact = false }: { compact?: boolean }) {
                     lineHeight: 1,
                 }}
             >
-                grogan
+                Kennewick
             </span>
-
-            {/* The dot — the signature element */}
             <span
                 style={{
-                    display: "inline-block",
-                    width: compact ? "5px" : "6px",
-                    height: compact ? "5px" : "6px",
-                    borderRadius: "50%",
-                    background: "var(--color-accent)",
-                    boxShadow: "0 0 8px var(--color-accent-glow)",
-                    margin: "0 1px",
-                    verticalAlign: "baseline",
-                    position: "relative",
-                    bottom: compact ? "2px" : "3px",
-                }}
-                aria-hidden="true"
-            />
-
-            {/* "dev" — lighter weight, muted color */}
-            <span
-                style={{
-                    fontSize: size,
-                    fontWeight: 400,
-                    color: "var(--color-text-muted)",
-                    letterSpacing: "-0.02em",
+                    fontSize: subtitleSize,
+                    fontWeight: 600,
+                    color: "var(--color-accent)",
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
                     fontFamily: "var(--font-display)",
                     lineHeight: 1,
                 }}
             >
-                dev
+                Web Design
             </span>
         </Link>
     );

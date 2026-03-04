@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { managedHostingPlans } from "@/lib/data";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-    alternates: { canonical: "https://grogan.dev/services/managed-hosting" },
-    title: "Managed Hosting Subscriptions — Tri-Cities & Kennewick",
+    alternates: { canonical: "/services/managed-hosting" },
+    title: "Managed Hosting",
     description:
-        "Premium managed hosting starting at $25/mo. We handle server maintenance, security monitoring, and updates so you never have to worry about your site going offline.",
+        "Managed hosting for websites that need updates, monitoring, and ongoing support after launch.",
 };
 
 const CheckIcon = () => (
@@ -23,7 +24,7 @@ export default function ManagedHostingPage() {
                     <span className="local-badge local-badge-gold">Managed Hosting</span>
                     <h1 className="mt-4">Fully Managed Hosting Subscriptions</h1>
                     <p>
-                        Secure, fast, and always up-to-date. Transparent monthly hosting that scales with your business — without the DIY headache.
+                        Ongoing hosting support for businesses that do not want to manage updates, uptime, security tasks, and maintenance on their own.
                     </p>
                 </div>
             </section>
@@ -33,7 +34,7 @@ export default function ManagedHostingPage() {
                     <div style={{ textAlign: "center", marginBottom: "var(--spacing-16)" }}>
                         <h2>Why pay for Managed Hosting?</h2>
                         <p style={{ color: "var(--color-text-muted)", fontSize: "var(--font-size-lg)", marginTop: "var(--spacing-4)" }}>
-                            You could pay $32/mo for a DIY builder and still have to do all the work yourself, or you could pay $25/mo to have an expert handle the technology while you run your business.
+                            A launched website still needs upkeep. Managed hosting exists for businesses that would rather pay for maintenance than scramble when something breaks.
                         </p>
                     </div>
 
@@ -112,29 +113,26 @@ export default function ManagedHostingPage() {
                         <div>
                             <h2>Real Support from Real People</h2>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
-                                A website isn&apos;t a billboard you put up and forget about. It&apos;s
-                                software that needs to be updated, secured, and backed up
-                                regularly. If you ignore it, it will eventually break or get
-                                hacked.
+                                A website is software. It needs updates, monitoring, and occasional intervention. Ignoring it usually works right up until it does not.
                             </p>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
-                                Our managed hosting acts as an insurance policy for your website. We handle all the technical details so you can focus on running your business, not playing IT support. If anything ever breaks, we fix it instantly at no extra cost.
+                                These plans are for businesses that want someone responsible for the routine technical work after launch. Higher tiers add more support, reporting, and content help as the site grows.
                             </p>
                         </div>
                         <div className="card" style={{ padding: "3rem" }}>
                             <h3 style={{ marginBottom: 16 }}>Every Tier Includes:</h3>
                             <ul style={{ paddingLeft: 0, listStyle: "none" }}>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
-                                    <CheckIcon /> 99.9% Uptime Guarantee
+                                    <CheckIcon /> Premium hosting environment
                                 </li>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
-                                    <CheckIcon /> Free SSL Certificate Auto-Renewals
+                                    <CheckIcon /> SSL certificate and renewals
                                 </li>
                                 <li style={{ padding: "12px 0", borderBottom: "1px solid var(--color-glass-border)", display: "flex" }}>
-                                    <CheckIcon /> Global CDN for Fast Load Times
+                                    <CheckIcon /> Uptime monitoring
                                 </li>
                                 <li style={{ padding: "12px 0", display: "flex" }}>
-                                    <CheckIcon /> 24/7 Security Event Monitoring
+                                    <CheckIcon /> Core security and maintenance updates
                                 </li>
                             </ul>
                         </div>
@@ -146,10 +144,10 @@ export default function ManagedHostingPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Protect Your Business Online</h2>
-                    <p>Don&apos;t wait until your site gets hacked. Secure it today.</p>
+                    <p>If you need someone responsible for keeping the site healthy after launch, start the conversation here.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Started with Hosting <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

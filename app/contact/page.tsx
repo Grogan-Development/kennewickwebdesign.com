@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
-import LazyMap from "@/components/LazyMap";
+import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-    alternates: { canonical: "https://grogan.dev/contact" },
-    title: "Contact Us",
+    alternates: { canonical: "/contact" },
+    title: "Contact",
     description:
-        "Get in touch with your local Kennewick web design experts. Free website audits, strategy calls, and quotes.",
+        "Get in touch to discuss a new website, redesign, local SEO work, or ongoing support for your Tri-Cities business.",
 };
 
 export default function ContactPage() {
@@ -17,10 +18,10 @@ export default function ContactPage() {
                 <div className="aurora-glow accent" style={{ top: "0%", left: "50%", transform: "translateX(-50%)", opacity: 0.3 }}></div>
                 <div className="container z-above">
                     <span className="local-badge">Get In Touch</span>
-                    <h1>Let&apos;s Build Something Great</h1>
+                    <h1>Tell Me What You&apos;re Building</h1>
                     <p>
-                        Get a free website audit, ask a question, or book a strategy call.
-                        We reply within one business day.
+                        Reach out about a new site, a redesign, local SEO, or ongoing support.
+                        You&apos;ll hear back within one business day.
                     </p>
                 </div>
             </section>
@@ -31,13 +32,68 @@ export default function ContactPage() {
 
                         {/* Glassmorphic Form Container */}
                         <div className="glass-container contact-form-card">
-                            <h2 className="mb-8" style={{ fontSize: "var(--font-size-3xl)", color: "var(--color-white)", fontWeight: 600 }}>Send Us a Message</h2>
+                            <h2 className="mb-8" style={{ fontSize: "var(--font-size-3xl)", color: "var(--color-white)", fontWeight: 600 }}>Start the Conversation</h2>
+                            <p style={{ color: "var(--color-text-muted)", marginBottom: 24, lineHeight: 1.7 }}>
+                                The more context you share, the more useful the first reply will be.
+                                If you already have a site, include the URL and what is not working.
+                            </p>
                             <ContactForm />
                         </div>
 
-                        {/* Contact Information & Map */}
+                        {/* Contact Information & Process */}
                         <div style={{ padding: "var(--spacing-6) 0" }}>
-                            <h2 style={{ marginBottom: "var(--spacing-8)", fontSize: "var(--font-size-2xl)", color: "var(--color-white)", fontWeight: 600 }}>Contact Info</h2>
+                            <h2 style={{ marginBottom: "var(--spacing-8)", fontSize: "var(--font-size-2xl)", color: "var(--color-white)", fontWeight: 600 }}>What to Expect</h2>
+
+                            <div className="card" style={{ marginBottom: 32 }}>
+                                <h3 style={{ marginBottom: 16 }}>Best fit for this site</h3>
+                                <ul className="pricing-feature-list">
+                                    <li className="pricing-feature">
+                                        <span className="check" aria-hidden="true">✓</span>
+                                        Local service businesses that need a better first impression
+                                    </li>
+                                    <li className="pricing-feature">
+                                        <span className="check" aria-hidden="true">✓</span>
+                                        Businesses with an outdated site that is not converting
+                                    </li>
+                                    <li className="pricing-feature" style={{ borderBottom: "none" }}>
+                                        <span className="check" aria-hidden="true">✓</span>
+                                        Owners who want clear pricing and direct communication
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div className="card" style={{ marginBottom: 32 }}>
+                                <h3 style={{ marginBottom: 16 }}>After you reach out</h3>
+                                <div style={{ display: "grid", gap: 16 }}>
+                                    {[
+                                        "I review your message and current website if you have one.",
+                                        "You get a direct reply with next steps, pricing fit, or clarifying questions.",
+                                        "If it makes sense, we schedule a consultation and map the project scope.",
+                                    ].map((item, index) => (
+                                        <div key={item} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+                                            <div
+                                                style={{
+                                                    width: 28,
+                                                    height: 28,
+                                                    borderRadius: "50%",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    background: "rgba(59,130,246,0.18)",
+                                                    color: "var(--color-primary)",
+                                                    fontWeight: 800,
+                                                    flexShrink: 0,
+                                                }}
+                                            >
+                                                {index + 1}
+                                            </div>
+                                            <p style={{ margin: 0, color: "var(--color-text-muted)", lineHeight: 1.7 }}>{item}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <h2 style={{ marginBottom: "var(--spacing-8)", fontSize: "var(--font-size-2xl)", color: "var(--color-white)", fontWeight: 600 }}>Direct Contact</h2>
 
                             <div className="contact-info-card" style={{ marginBottom: 32 }}>
                                 <div className="contact-info-icon primary">
@@ -45,7 +101,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h4 className="feature-title" style={{ color: "var(--color-white)" }}>Location</h4>
-                                    <p className="text-muted">Kennewick, WA<br />Serving the Tri-Cities</p>
+                                    <p className="text-muted">{site.city}, {site.state}<br />Serving the Tri-Cities and surrounding businesses</p>
                                 </div>
                             </div>
 
@@ -56,7 +112,7 @@ export default function ContactPage() {
                                 <div>
                                     <h4 className="feature-title" style={{ color: "var(--color-white)" }}>Phone</h4>
                                     <p>
-                                        <a href="tel:5094263172" className="text-muted">(509) 426-3172</a>
+                                        <a href={`tel:${site.phoneHref}`} className="text-muted">{site.phoneDisplay}</a>
                                     </p>
                                 </div>
                             </div>
@@ -68,15 +124,25 @@ export default function ContactPage() {
                                 <div>
                                     <h4 className="feature-title" style={{ color: "var(--color-white)" }}>Email</h4>
                                     <p>
-                                        <a href="mailto:info@grogan.dev" className="text-muted">info@grogan.dev</a>
+                                        <a href={`mailto:${site.email}`} className="text-muted">{site.email}</a>
                                     </p>
                                 </div>
                             </div>
 
-                            <LazyMap
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d176527.03819814895!2d-119.42165351121679!3d46.2654344646017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54987b193e72a147%3A0xfd256fdce5f75c5!2sTri-Cities%2C%20WA!5e1!3m2!1sen!2sus!4v1772045117145!5m2!1sen!2sus"
-                                title="Map of Tri-Cities, Washington service area"
-                            />
+                            <div className="card" style={{ padding: "1.75rem" }}>
+                                <h3 style={{ marginBottom: 12 }}>Need more proof first?</h3>
+                                <p style={{ color: "var(--color-text-muted)", lineHeight: 1.7, marginBottom: 20 }}>
+                                    Review live examples, package pricing, and service details before you reach out.
+                                </p>
+                                <div className="btn-group">
+                                    <Link href="/portfolio" className="btn btn-outline btn-sm">
+                                        View Portfolio
+                                    </Link>
+                                    <Link href="/pricing" className="btn btn-outline btn-sm">
+                                        View Pricing
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

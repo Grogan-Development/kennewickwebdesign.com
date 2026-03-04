@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { services } from "@/lib/data";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/services" },
-    title: "Web Design & Local SEO Services",
+    alternates: { canonical: "/services" },
+    title: "Services",
     description:
-        "Premium web design, local SEO, website care plans, and e-commerce solutions for Tri-Cities businesses.",
+        "Website design, local SEO, managed hosting, and e-commerce support for Tri-Cities businesses that need a clearer digital presence.",
 };
 
 export default function ServicesPage() {
@@ -17,10 +18,10 @@ export default function ServicesPage() {
                 <div className="aurora-glow accent" style={{ top: "0%", left: "50%", transform: "translateX(-50%)", opacity: 0.3 }}></div>
                 <div className="container z-above">
                     <span className="local-badge">Our Services</span>
-                    <h1 className="mt-4">Web Solutions That Drive Growth</h1>
+                    <h1 className="mt-4">Services built around trust, clarity, and lead flow.</h1>
                     <p>
-                        Everything you need to dominate your local market online — from
-                        high-converting design to local SEO that puts you on page one.
+                        The work centers on the parts that usually matter most for local businesses:
+                        how the site looks, what it says, how easy it is to use, and whether it gives people a reason to contact you.
                     </p>
                 </div>
             </section>
@@ -50,10 +51,10 @@ export default function ServicesPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Ready to upgrade your web presence?</h2>
-                    <p>Tell us what you need and we&apos;ll build a custom plan for your business.</p>
+                    <p>Tell us what is not working today and we&apos;ll recommend the most sensible next step.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                         <Link href="/pricing" className="btn btn-outline btn-lg">
                             View Pricing

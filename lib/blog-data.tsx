@@ -16,7 +16,7 @@ export const blogPosts: BlogPost[] = [
         excerpt:
             "No tech jargon, no fluff. A plain-English breakdown of what SEO actually means, why Lighthouse scores matter, what headers and cookies do, and how to tell if you're getting a good deal on your next website.",
         category: "Guide",
-        author: "Zackariah Grogan",
+        author: "Zack Grogan",
         date: "February 25, 2026",
         readTime: "12 min read",
         content: (
@@ -289,7 +289,7 @@ export const blogPosts: BlogPost[] = [
         excerpt:
             "Kennewick, Pasco, and Richland businesses deserve straight answers about website pricing. Here's a real breakdown of what you should expect to pay — and what you should get for your money.",
         category: "Pricing",
-        author: "Zackariah Grogan",
+        author: "Zack Grogan",
         date: "February 25, 2026",
         readTime: "8 min read",
         content: (
@@ -431,7 +431,7 @@ export const blogPosts: BlogPost[] = [
         excerpt:
             "Your Google Business Profile is how customers in Kennewick, Pasco, and Richland actually find you. This step-by-step guide walks you through setting it up correctly so you show up on Google Maps and local search results.",
         category: "Local SEO",
-        author: "Zackariah Grogan",
+        author: "Zack Grogan",
         date: "February 25, 2026",
         readTime: "10 min read",
         content: (

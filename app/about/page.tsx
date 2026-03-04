@@ -1,175 +1,164 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-    alternates: { canonical: "https://grogan.dev/about" },
-    title: "About Us",
-    description:
-        "We're your local Kennewick web design experts. Learn why Tri-Cities businesses trust us to build premium, lead-generating websites.",
+  alternates: { canonical: "/about" },
+  title: "About",
+  description:
+    "Learn how Zack Grogan runs Kennewick Web Design: direct communication, transparent pricing, and websites built for local businesses that need to convert.",
 };
 
+const principles = [
+  {
+    title: "Direct communication",
+    description:
+      "You work directly with Zack Grogan from the first message through launch. There is no handoff from sales to account management to production.",
+  },
+  {
+    title: "Clear scope and pricing",
+    description:
+      "Packages are published. Support windows are defined. If something is outside scope, it gets called out instead of being buried in vague language.",
+  },
+  {
+    title: "Work that serves the business",
+    description:
+      "The goal is not to make a local business look like a startup landing page. The goal is to make it easier for the right customer to trust you and reach out.",
+  },
+];
+
+const founderNotes = [
+  "Based in Kennewick and focused on the Tri-Cities market",
+  "Background across design, development, photography, and product work",
+  "Best fit for local businesses that need a stronger first impression",
+  "You get 30 days of post-launch support with every project package",
+];
+
 export default function AboutPage() {
-    return (
-        <>
-            <section className="page-hero">
-                <div className="bg-grid"></div>
-                <div className="aurora-glow" style={{ top: "10%", left: "50%", transform: "translateX(-50%)", opacity: 0.4 }}></div>
-                <div className="container z-above">
-                    <span className="local-badge local-badge-gold">Based in Kennewick</span>
-                    <h1 className="mt-4">Hi, I&apos;m Your Local Web Expert</h1>
-                    <p>
-                        No offshore teams. No call centers. Just a Tri-Cities neighbor who
-                        knows how to build websites that actually grow your business.
-                    </p>
+  return (
+    <>
+      <section className="page-hero">
+        <div className="bg-grid"></div>
+        <div className="aurora-glow" style={{ top: "10%", left: "50%", transform: "translateX(-50%)", opacity: 0.4 }}></div>
+        <div className="container z-above">
+          <span className="local-badge local-badge-gold">About the Studio</span>
+          <h1 className="mt-4">A local studio built around direct work, not agency layers.</h1>
+          <p>
+            {site.name} is run by {site.founderName}. The business exists to give Tri-Cities owners a more
+            straightforward option for websites, SEO foundations, and ongoing support.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="two-col">
+            <div>
+              <h2>Why this business exists</h2>
+              <p className="text-muted" style={{ marginTop: 16 }}>
+                Too many local businesses end up with one of two bad outcomes: an overpriced agency engagement that
+                never feels connected to the actual business, or a cheap site that looks fine for a week and then
+                becomes a liability.
+              </p>
+              <p className="text-muted" style={{ marginTop: 16 }}>
+                {site.name} is meant to sit in the middle of that gap. The work is custom, the pricing is visible,
+                and the communication stays direct. The point is not to sell the biggest possible project. The point
+                is to build something that fits the stage of the business and actually helps it move forward.
+              </p>
+              <p className="text-muted" style={{ marginTop: 16 }}>
+                After years working across design, photography, development, and product-oriented builds, Zack brought
+                that range back to the Tri-Cities to work more closely with local businesses that need credibility and
+                clearer positioning online.
+              </p>
+            </div>
+
+            <div className="card" style={{ padding: "2.25rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 18, marginBottom: 24 }}>
+                <div
+                  style={{
+                    width: 68,
+                    height: 68,
+                    borderRadius: "50%",
+                    background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--color-dark)",
+                    fontWeight: 800,
+                    fontSize: "1.15rem",
+                  }}
+                >
+                  ZG
                 </div>
-            </section>
-
-            <section className="section">
-                <div className="container">
-                    <div className="two-col">
-                        <div style={{ position: "relative" }}>
-                            {/* Premium Tech Visual replacing generic image */}
-                            <div style={{
-                                background: "linear-gradient(135deg, rgba(2, 8, 21, 0.4), rgba(15, 23, 42, 0.8))",
-                                borderRadius: "var(--radius-xl)",
-                                position: "relative",
-                                zIndex: 2,
-                                border: "1px solid rgba(255, 255, 255, 0.08)",
-                                minHeight: "500px",
-                                height: "100%",
-                                overflow: "hidden",
-                                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255,255,255,0.02)"
-                            }}>
-                                {/* Grid texture background */}
-                                <div className="bg-grid" style={{ opacity: 0.25, zIndex: 0 }}></div>
-
-                                {/* Amber Glow */}
-                                <div style={{
-                                    position: "absolute",
-                                    top: "10%",
-                                    right: "10%",
-                                    width: "150px",
-                                    height: "150px",
-                                    background: "var(--color-accent)",
-                                    borderRadius: "50%",
-                                    filter: "blur(60px)",
-                                    opacity: 0.15,
-                                    zIndex: 0
-                                }}></div>
-
-                                {/* Floating Window 1: Code Editor */}
-                                <div className="animate-in" style={{
-                                    position: "absolute",
-                                    top: "20%",
-                                    left: "-5%",
-                                    width: "70%",
-                                    height: "45%",
-                                    background: "rgba(2, 8, 21, 0.8)",
-                                    border: "1px solid rgba(59, 130, 246, 0.3)",
-                                    borderRadius: "12px",
-                                    boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
-                                    backdropFilter: "blur(12px)",
-                                    transform: "rotate(-4deg)",
-                                    padding: "1.5rem",
-                                    zIndex: 2
-                                }}>
-                                    <div style={{ display: "flex", gap: "8px", marginBottom: "1.5rem" }}>
-                                        <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#ef4444" }}></div>
-                                        <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#f59e0b" }}></div>
-                                        <div style={{ width: "12px", height: "12px", borderRadius: "50%", background: "#10b981" }}></div>
-                                    </div>
-                                    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                                        <div style={{ width: "85%", height: "8px", background: "rgba(59, 130, 246, 0.6)", borderRadius: "4px" }}></div>
-                                        <div style={{ width: "60%", height: "8px", background: "rgba(255, 255, 255, 0.2)", borderRadius: "4px" }}></div>
-                                        <div style={{ width: "40%", height: "8px", background: "rgba(255, 255, 255, 0.2)", borderRadius: "4px" }}></div>
-                                        <div style={{ width: "75%", height: "8px", background: "var(--color-accent)", opacity: 0.8, borderRadius: "4px", marginTop: "8px" }}></div>
-                                    </div>
-                                </div>
-
-                                {/* Floating Window 2: Analytics / Dashboard */}
-                                <div className="animate-in-delay-1" style={{
-                                    position: "absolute",
-                                    bottom: "10%",
-                                    right: "-10%",
-                                    width: "75%",
-                                    height: "55%",
-                                    background: "rgba(255, 255, 255, 0.02)",
-                                    border: "1px solid rgba(255, 255, 255, 0.1)",
-                                    borderRadius: "12px",
-                                    boxShadow: "0 15px 40px rgba(0,0,0,0.6)",
-                                    backdropFilter: "blur(16px)",
-                                    transform: "rotate(3deg)",
-                                    padding: "1.5rem",
-                                    zIndex: 3,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    justifyContent: "flex-end"
-                                }}>
-                                    <div style={{ width: "100%", height: "50%", borderBottom: "1px solid rgba(255,255,255,0.05)", marginBottom: "1.2rem", display: "flex", alignItems: "flex-end", gap: "10px", paddingBottom: "10px" }}>
-                                        <div style={{ flex: 1, height: "30%", background: "rgba(59, 130, 246, 0.3)", borderRadius: "4px 4px 0 0" }}></div>
-                                        <div style={{ flex: 1, height: "70%", background: "rgba(59, 130, 246, 0.5)", borderRadius: "4px 4px 0 0" }}></div>
-                                        <div style={{ flex: 1, height: "50%", background: "var(--color-accent)", opacity: 0.8, borderRadius: "4px 4px 0 0" }}></div>
-                                        <div style={{ flex: 1, height: "100%", background: "rgba(59, 130, 246, 0.8)", borderRadius: "4px 4px 0 0", boxShadow: "0 0 20px rgba(59, 130, 246, 0.4)" }}></div>
-                                    </div>
-                                    <div style={{ display: "flex", gap: "12px" }}>
-                                        <div style={{ flex: 1, height: "48px", background: "rgba(255,255,255,0.04)", borderRadius: "8px" }}></div>
-                                        <div style={{ flex: 1, height: "48px", background: "rgba(255,255,255,0.04)", borderRadius: "8px" }}></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="aurora-glow accent" style={{ bottom: "-10%", right: "-10%", zIndex: 1 }}></div>
-                        </div>
-
-                        <div>
-                            <h2>Why I Started Kennewick Web Design</h2>
-                            <p className="text-muted" style={{ marginTop: 16 }}>
-                                I was born and raised right here in Kennewick. I spent years in Houston, TX, honing my skills across a wide range of industries — from manufacturing and sales to graphic design, photography, video editing, and complete web development.
-                            </p>
-                            <p className="text-muted" style={{ marginTop: 16 }}>
-                                But ultimately, I wanted to bring that diverse experience back home. I started Kennewick Web Design to be closer to my family, and to use my agency-level skills to help local Tri-Cities businesses grow through transparent, high-converting websites.
-                            </p>
-
-                            <h3 style={{ marginTop: 32, marginBottom: 16 }}>Our Core Values</h3>
-                            <div className="card" style={{ padding: "1.5rem" }}>
-                                <ul className="pricing-feature-list">
-                                    <li className="pricing-feature">
-                                        <span className="check" aria-hidden="true">✦</span>
-                                        <div>
-                                            <strong>Transparency first:</strong> We publish our pricing.
-                                        </div>
-                                    </li>
-                                    <li className="pricing-feature">
-                                        <span className="check" aria-hidden="true">✦</span>
-                                        <div>
-                                            <strong>Results over aesthetics:</strong> It has to look great, but it primarily has to convert.
-                                        </div>
-                                    </li>
-                                    <li className="pricing-feature" style={{ borderBottom: "none" }}>
-                                        <span className="check" aria-hidden="true">✦</span>
-                                        <div>
-                                            <strong>Long-term partnerships:</strong> We don’t just launch and leave.
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                  <h3 style={{ marginBottom: 6 }}>{site.founderName}</h3>
+                  <p className="text-muted" style={{ margin: 0 }}>
+                    Founder, designer, and developer
+                  </p>
                 </div>
-            </section>
+              </div>
 
-            <section className="cta-banner">
-                <div className="bg-grid"></div>
-                <div className="container z-above">
-                    <h2>Let&apos;s Work Together</h2>
-                    <p>Ready to upgrade your web presence? Let&apos;s grab coffee and talk strategy.</p>
-                    <div className="btn-group" style={{ justifyContent: "center" }}>
-                        <Link href="/contact" className="btn btn-accent btn-lg">
-                            Book a Strategy Call <span className="icon-arrow">→</span>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+              <ul className="pricing-feature-list">
+                {founderNotes.map((item, index) => (
+                  <li
+                    key={item}
+                    className="pricing-feature"
+                    style={index === founderNotes.length - 1 ? { borderBottom: "none" } : undefined}
+                  >
+                    <span className="check" aria-hidden="true">✓</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        </>
-    );
+      <section className="section-alt">
+        <div className="container">
+          <div className="section-header">
+            <span className="local-badge">Principles</span>
+            <h2 className="mt-4">How projects are approached</h2>
+            <div className="divider" />
+          </div>
+          <div className="grid-3">
+            {principles.map((item) => (
+              <div key={item.title} className="card">
+                <h3 style={{ marginBottom: 12 }}>{item.title}</h3>
+                <p className="card-text">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="card-featured card" style={{ padding: "var(--spacing-12)" }}>
+            <div className="two-col" style={{ alignItems: "center" }}>
+              <div>
+                <h2>What you can expect working together</h2>
+                <p className="section-muted-text" style={{ marginTop: 16 }}>
+                  Clear milestones, honest scope conversations, and a site that is built around the business goal
+                  instead of generic agency language. If the fit is wrong, that gets said early.
+                </p>
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
+                <Link href="/portfolio" className="btn btn-accent btn-lg">
+                  View Portfolio <span className="icon-arrow">→</span>
+                </Link>
+                <Link href="/pricing" className="btn btn-outline btn-lg">
+                  View Pricing
+                </Link>
+                <Link href="/contact" className="btn btn-outline btn-lg">
+                  Book a Consultation
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pricingPackages } from "@/lib/data";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/web-design-kennewick" },
+    alternates: { canonical: "/web-design-kennewick" },
     title: "Web Design Kennewick — Custom Websites for Local Businesses",
     description:
-        "Looking for web design in Kennewick? We build fast, lead-generating websites with transparent pricing. Get your free website audit today.",
+        "Looking for web design in Kennewick? We build custom websites for local businesses that need clearer messaging, better structure, and stronger credibility.",
 };
 
 export default function WebDesignKennewickPage() {
@@ -18,8 +20,7 @@ export default function WebDesignKennewickPage() {
                     <span className="local-badge local-badge-gold">Kennewick, WA</span>
                     <h1 className="mt-4">Web Design Kennewick</h1>
                     <p>
-                        Custom, lead-generating websites for Kennewick businesses — built
-                        by a local expert with transparent pricing and real results.
+                        Custom websites for Kennewick businesses that need a stronger first impression, clearer messaging, and a cleaner path to inquiry.
                     </p>
                 </div>
             </section>
@@ -36,16 +37,15 @@ export default function WebDesignKennewickPage() {
                             </p>
                             <p style={{ marginTop: 12, color: "var(--color-text-muted)" }}>
                                 We live in Kennewick and work exclusively with Kennewick &amp;
-                                Tri-Cities businesses. Every site we build is optimized for your
-                                local customers and designed to turn Google searches into phone
-                                calls.
+                                Tri-Cities businesses. The point is to build something that feels
+                                credible to local buyers and gives them a simple next step.
                             </p>
                             <div className="btn-group" style={{ marginTop: 32 }}>
                                 <Link href="/contact" className="btn btn-primary btn-lg">
-                                    Get Your Free Audit <span className="icon-arrow">→</span>
+                                    {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                                 </Link>
-                                <Link href="/pricing" className="btn btn-outline btn-lg">
-                                    View Pricing
+                                <Link href="/portfolio" className="btn btn-outline btn-lg">
+                                    View Portfolio
                                 </Link>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ export default function WebDesignKennewickPage() {
 
                                     <div>
                                         <h4 style={{ marginBottom: 4, color: "var(--color-white)", fontSize: "var(--font-size-lg)" }}>Transparent Pricing</h4>
-                                        <p className="card-text" style={{ margin: 0 }}>Starting from $1,997. No surprises.</p>
+                                        <p className="card-text" style={{ margin: 0 }}>Starting from {pricingPackages[0]?.price ?? "$750"}. No surprises.</p>
                                     </div>
                                 </div>
                                 <div className="card" style={{ display: "flex", gap: 16, alignItems: "center", padding: "1.5rem" }}>
@@ -83,10 +83,13 @@ export default function WebDesignKennewickPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Need a Website in Kennewick?</h2>
-                    <p>Start with a free audit — we&apos;ll review your current site and show you exactly what to fix.</p>
+                    <p>Start with a direct conversation about what the site needs to do and which package fits the business.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Kennewick Website Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
+                        </Link>
+                        <Link href="/pricing" className="btn btn-outline btn-lg">
+                            View Pricing
                         </Link>
                     </div>
                 </div>

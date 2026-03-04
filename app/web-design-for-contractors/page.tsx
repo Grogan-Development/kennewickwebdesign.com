@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-    alternates: { canonical: "https://grogan.dev/web-design-for-contractors" },
+    alternates: { canonical: "/web-design-for-contractors" },
     title: "Web Design for Contractors — Kennewick & Tri-Cities",
     description:
-        "Lead-generating websites for Kennewick contractors. Roofers, electricians, plumbers, HVAC — built by a local expert who understands your business.",
+        "Web design for Kennewick and Tri-Cities contractors who need a more professional website, stronger trust signals, and clearer lead flow.",
 };
 
 const CheckIcon = () => (
@@ -92,10 +93,10 @@ export default function ContractorsPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Ready to Get More Contractor Leads?</h2>
-                    <p>Tell us about your contracting business and we&apos;ll send you a free site audit.</p>
+                    <p>Tell us about the business and we&apos;ll talk through the right website structure, messaging, and next step.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Contractor Site Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

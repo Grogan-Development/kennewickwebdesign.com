@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/winery-website-design" },
+    alternates: { canonical: "/winery-website-design" },
     title: "Winery & Tasting Room Website Design — Tri-Cities / Kennewick",
     description:
         "Elegant websites for Tri-Cities wineries and tasting rooms. Online reservations, event calendars, wine club signups — from a local Kennewick web expert.",
@@ -62,24 +63,25 @@ export default function WineryPage() {
                             </ul>
                         </div>
 
-                        <div style={{ position: "relative" }}>
-                            {/* Premium image placeholder with glows */}
-                            <div style={{
-                                background: "linear-gradient(135deg, rgba(139, 0, 0, 0.2), var(--color-dark))",
-                                borderRadius: "var(--radius-xl)",
-                                padding: "1rem",
-                                position: "relative",
-                                zIndex: 2,
-                                border: "1px solid rgba(139, 0, 0, 0.4)"
-                            }}>
-                                <div className="winery-image-placeholder" style={{ backdropFilter: "blur(8px)" }}>
-                                    <div style={{ textAlign: "center" }}>
-                                        <div style={{ fontSize: "4rem", marginBottom: "1rem" }}>🍇</div>
-                                        <div style={{ fontSize: "1.2rem", fontWeight: "bold", color: "var(--color-white)" }}>[Professional Winery Design Showcase]</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="aurora-glow accent" style={{ bottom: "-10%", right: "-10%", zIndex: 1, background: "radial-gradient(circle, rgba(139, 0, 0, 0.4) 0%, transparent 70%)" }}></div>
+                        <div className="card" style={{ padding: "2.25rem" }}>
+                            <h3 style={{ marginBottom: 16 }}>What winery visitors usually need first</h3>
+                            <ul className="pricing-feature-list">
+                                {[
+                                    "Hours, location, and tasting information without hunting for it",
+                                    "A reservation flow that works cleanly on mobile",
+                                    "A visual feel that matches the tasting room experience",
+                                    "Event, club, and bottle-sale paths that are easy to understand",
+                                ].map((item, index) => (
+                                    <li
+                                        key={item}
+                                        className="pricing-feature"
+                                        style={index === 3 ? { borderBottom: "none" } : undefined}
+                                    >
+                                        <span className="check" aria-hidden="true">✓</span>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -89,10 +91,10 @@ export default function WineryPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Let&apos;s Fill Your Tasting Room</h2>
-                    <p>Get a free website review for your winery or tasting room.</p>
+                    <p>Tell us about the winery and we&apos;ll map the best structure for visits, reservations, and club signups.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Winery Site Review <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

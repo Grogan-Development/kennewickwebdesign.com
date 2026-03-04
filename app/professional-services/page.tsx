@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/professional-services" },
+    alternates: { canonical: "/professional-services" },
     title: "Professional Services Web Design — Kennewick / Tri-Cities",
     description:
         "Custom websites for Tri-Cities law firms, accountants, consultants, and B2B professionals. Authority-building design and local SEO.",
@@ -75,7 +76,7 @@ export default function ProfessionalServicesPage() {
                     <p>Let&apos;s build a digital presence that reflects the quality of your services.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Web Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

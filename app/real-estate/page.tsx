@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-    alternates: { canonical: "https://grogan.dev/real-estate" },
+    alternates: { canonical: "/real-estate" },
     title: "Real Estate Website Design — Kennewick / Tri-Cities",
     description:
         "Premium websites for Tri-Cities real estate agents and brokerages. IDX integration, neighborhood guides, and lead capture features.",
@@ -75,7 +76,7 @@ export default function RealEstatePage() {
                     <p>Let&apos;s build a digital presence that wins more listings.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Web Strategy Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

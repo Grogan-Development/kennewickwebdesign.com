@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 interface CityPageProps {
     city: string;
@@ -31,31 +32,28 @@ export default function CityLandingPage({
                 <div className="container">
                     <div className="two-col">
                         <div>
-                            <h2>Why {city} Businesses Choose Us</h2>
+                            <h2>Why {city} businesses work with us</h2>
                             <p className="text-muted" style={{ marginTop: 12 }}>
-                                We&apos;re based right here in Kennewick, which means we know{" "}
-                                {city} inside and out. {neighborhoodMention}
+                                We&apos;re based in {site.city}, which means we know the Tri-Cities market from the inside.
+                                {` ${neighborhoodMention}`}
                             </p>
                             <p className="text-muted" style={{ marginTop: 12 }}>
                                 {localFact}
                             </p>
                             <p className="text-muted" style={{ marginTop: 12 }}>
-                                When you work with us, you work with a real neighbor — not a
-                                call center. We meet in person, take local photos for your site,
-                                and build something that resonates with{" "}
-                                {city} customers.
+                                The value is not just geography. It&apos;s being close enough to understand how local buyers evaluate a business,
+                                what information they need first, and what kind of site feels credible in this market.
                             </p>
                         </div>
                         <div className="card city-offer-card">
-                            <h3 style={{ marginBottom: 24 }}>What We Offer in {city}</h3>
+                            <h3 style={{ marginBottom: 24 }}>What we usually help fix</h3>
                             <ul style={{ paddingLeft: 0, listStyle: "none" }}>
                                 {[
-                                    "Custom website design & development",
-                                    `Local SEO to rank for "${city.toLowerCase()} [your service]"`,
-                                    "Google Business Profile optimization",
-                                    "Website care plans & ongoing support",
-                                    "E-commerce & booking systems",
-                                    "Lead-capture forms & call tracking"
+                                    "Outdated websites that do not match the quality of the business",
+                                    "Messaging that is too vague to convert the right visitor",
+                                    "Local SEO foundations for service-area searches",
+                                    "Lead forms and calls to action that are easy to use on mobile",
+                                    "Ongoing hosting and support after launch",
                                 ].map((item, i) => (
                                     <li key={i} className="audit-checklist-item" style={{ marginBottom: 16, color: "var(--color-text-main)" }}>
                                         <span className="check" aria-hidden="true">✦</span>
@@ -63,6 +61,14 @@ export default function CityLandingPage({
                                     </li>
                                 ))}
                             </ul>
+                            <div className="btn-group" style={{ marginTop: 24 }}>
+                                <Link href="/portfolio" className="btn btn-outline btn-sm">
+                                    View Portfolio
+                                </Link>
+                                <Link href="/pricing" className="btn btn-outline btn-sm">
+                                    View Pricing
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -72,7 +78,7 @@ export default function CityLandingPage({
                 <div className="aurora-glow" style={{ top: "10%", right: "-10%" }}></div>
                 <div className="container">
                     <div className="section-header">
-                        <h2>Industries We Serve in {city}</h2>
+                        <h2>Common fits in {city}</h2>
                         <div className="divider" />
                     </div>
                     <div className="grid-3">
@@ -101,17 +107,16 @@ export default function CityLandingPage({
             <section className="cta-banner">
                 <div className="bg-grid"></div>
                 <div className="container z-above">
-                    <h2>Ready to Grow Your {city} Business Online?</h2>
+                    <h2>Ready to improve how your {city} business shows up online?</h2>
                     <p>
-                        Get a free website audit and see exactly what&apos;s holding your
-                        site back.
+                        Start with a direct conversation about what is not working today and what the right next step looks like.
                     </p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
-                        <Link href="/pricing" className="btn btn-outline btn-lg">
-                            View Pricing
+                        <Link href="/portfolio" className="btn btn-outline btn-lg">
+                            View Portfolio
                         </Link>
                     </div>
                 </div>

@@ -702,6 +702,22 @@ a:hover {
   line-height: 1.8;
 }
 
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    align-items: flex-start;
+    padding: 132px 0 72px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-trust-badges {
+    margin-top: var(--spacing-8);
+  }
+}
+
 /* =========================================
    PAGE HERO (Inner Pages)
    ========================================= */
@@ -1601,6 +1617,37 @@ h2 {
   justify-content: center;
 }
 
+.portfolio-grid {
+  align-items: stretch;
+}
+
+.portfolio-card {
+  min-height: 100%;
+  padding: clamp(1.5rem, 2vw, 2rem);
+}
+
+.portfolio-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.portfolio-card-summary {
+  margin-bottom: 20px;
+}
+
+.portfolio-feature-list {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.portfolio-section-cta {
+  text-align: center;
+  margin-top: var(--spacing-12);
+}
+
 /* Card link (no text decoration) */
 .card-link {
   text-decoration: none;
@@ -1614,6 +1661,16 @@ h2 {
   .mobile-nav-panel {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+  }
+
+  .portfolio-card-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .portfolio-card-top .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -1844,10 +1901,26 @@ h2 {
   font-size: 0.9rem;
   text-decoration: none;
   transition: color 0.2s ease;
+  position: relative;
 }
 
 .nav-link:hover {
   color: var(--color-white);
+}
+
+.nav-link.active {
+  color: var(--color-white);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 }
 
 /* Mobile nav panel */

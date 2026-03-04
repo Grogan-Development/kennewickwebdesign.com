@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/privacy" },
     title: "Privacy Policy",
     description:
         "Privacy Policy for Grogan Development Group LLC — Kennewick Web Design. Learn how we collect, use, and protect your personal information.",
@@ -27,7 +29,7 @@ export default function PrivacyPolicyPage() {
 
                             <p style={{ marginBottom: "2rem" }}>
                                 Grogan Development Group LLC (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) operates the website
-                                grogan.dev (the &quot;Site&quot;). This Privacy Policy explains how we collect, use, disclose,
+                                kennewickwebdesign.com (the &quot;Site&quot;). This Privacy Policy explains how we collect, use, disclose,
                                 and safeguard your information when you visit our Site or engage our services.
                             </p>
 
@@ -35,7 +37,7 @@ export default function PrivacyPolicyPage() {
 
                             <h3 style={{ fontSize: "1.1rem", marginBottom: "0.75rem", marginTop: "1.5rem" }}>Personal Information</h3>
                             <p style={{ marginBottom: "1rem" }}>
-                                When you contact us through our website, request a free audit, or engage our services,
+                                When you contact us through our website, submit a project inquiry, or engage our services,
                                 we may collect the following information:
                             </p>
                             <ul style={{ paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
@@ -48,10 +50,10 @@ export default function PrivacyPolicyPage() {
 
                             <h3 style={{ fontSize: "1.1rem", marginBottom: "0.75rem", marginTop: "1.5rem" }}>Automatically Collected Information</h3>
                             <p style={{ marginBottom: "1.5rem" }}>
-                                When you visit our Site, we may automatically collect certain information about your
-                                device and usage, including your IP address, browser type, operating system, referring
-                                URLs, pages viewed, and the dates/times of your visits. This information is collected
-                                through cookies and similar tracking technologies.
+                                When you visit our Site, basic technical information may be collected by our hosting
+                                platform or analytics tools if enabled, such as IP address, browser type, device type,
+                                referring URL, and pages viewed. This information is used for security, performance,
+                                and site improvement.
                             </p>
 
                             <h2 style={{ fontSize: "1.3rem", marginBottom: "1rem", marginTop: "2rem" }}>2. How We Use Your Information</h2>
@@ -77,10 +79,9 @@ export default function PrivacyPolicyPage() {
 
                             <h2 style={{ fontSize: "1.3rem", marginBottom: "1rem", marginTop: "2rem" }}>4. Cookies &amp; Tracking</h2>
                             <p style={{ marginBottom: "1.5rem" }}>
-                                Our Site may use cookies and similar technologies to enhance your browsing experience,
-                                analyze site traffic, and understand where our visitors come from. You can control cookie
-                                preferences through your browser settings. Disabling cookies may affect certain features
-                                of the Site.
+                                We do not currently present this Site as an advertising or remarketing platform. If we
+                                enable analytics, embedded third-party tools, or other tracking technologies in the future,
+                                this policy will be updated accordingly. You can also control cookies through your browser settings.
                             </p>
 
                             <h2 style={{ fontSize: "1.3rem", marginBottom: "1rem", marginTop: "2rem" }}>5. Data Security</h2>
@@ -106,7 +107,7 @@ export default function PrivacyPolicyPage() {
                             </ul>
                             <p style={{ marginBottom: "1.5rem" }}>
                                 To exercise any of these rights, please contact us at{" "}
-                                <a href="mailto:info@grogan.dev">info@grogan.dev</a>.
+                                <a href={`mailto:${site.email}`}>{site.email}</a>.
                             </p>
 
                             <h2 style={{ fontSize: "1.3rem", marginBottom: "1rem", marginTop: "2rem" }}>8. Children&apos;s Privacy</h2>
@@ -129,9 +130,9 @@ export default function PrivacyPolicyPage() {
                             </p>
                             <p style={{ marginTop: "1rem" }}>
                                 <strong>Grogan Development Group LLC</strong><br />
-                                Kennewick, WA 99336<br />
-                                <a href="mailto:info@grogan.dev">info@grogan.dev</a><br />
-                                (509) 426-3172
+                                {site.city}, {site.state} {site.postalCode}<br />
+                                <a href={`mailto:${site.email}`}>{site.email}</a><br />
+                                {site.phoneDisplay}
                             </p>
                         </div>
                     </div>

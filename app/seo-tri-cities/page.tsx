@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/seo-tri-cities" },
+    alternates: { canonical: "/seo-tri-cities" },
     title: "SEO Tri-Cities — Local Search Optimization for Kennewick, Pasco & Richland",
     description:
-        "Local SEO services for Tri-Cities businesses. Rank on Google for Kennewick, Pasco, & Richland searches. Free SEO audit from your local expert.",
+        "Local SEO services for Tri-Cities businesses that need stronger visibility in Kennewick, Pasco, Richland, and nearby service-area searches.",
 };
 
 export default function SEOTriCitiesPage() {
@@ -43,7 +44,7 @@ export default function SEOTriCitiesPage() {
                             </p>
                             <div className="btn-group" style={{ marginTop: 32 }}>
                                 <Link href="/contact" className="btn btn-primary btn-lg">
-                                    Get Your Free SEO Audit <span className="icon-arrow">→</span>
+                                    {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                                 </Link>
                                 <Link href="/services/local-seo" className="btn btn-outline btn-lg">
                                     Learn More About Our SEO
@@ -56,8 +57,8 @@ export default function SEOTriCitiesPage() {
                                 <div style={{ display: "flex", gap: 16, marginBottom: 24 }}>
                                     <div style={{ background: "var(--color-primary)", color: "var(--color-white)", width: 32, height: 32, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "bold", flexShrink: 0 }}>1</div>
                                     <div>
-                                        <h4 style={{ fontSize: "var(--font-size-lg)", marginBottom: 8, color: "var(--color-white)" }}>Audit</h4>
-                                        <p style={{ color: "var(--color-text-muted)", fontSize: "var(--font-size-sm)", margin: 0 }}>We analyze your current rankings, website, and competitors.</p>
+                                        <h4 style={{ fontSize: "var(--font-size-lg)", marginBottom: 8, color: "var(--color-white)" }}>Review</h4>
+                                        <p style={{ color: "var(--color-text-muted)", fontSize: "var(--font-size-sm)", margin: 0 }}>We review your current rankings, website, and the local competitors getting the clicks.</p>
                                     </div>
                                 </div>
                                 <div style={{ display: "flex", gap: 16, marginBottom: 24 }}>
@@ -91,10 +92,10 @@ export default function SEOTriCitiesPage() {
                 <div className="bg-grid"></div>
                 <div className="container z-above">
                     <h2>Stop Losing Customers to Competitors on Google</h2>
-                    <p>Get a free SEO audit and see exactly where you stand.</p>
+                    <p>Reach out if you want a clearer picture of what is helping or hurting your local visibility.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Tri-Cities SEO Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

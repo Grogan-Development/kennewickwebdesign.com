@@ -1,24 +1,25 @@
+import { absoluteUrl, site } from "@/lib/site";
+
 /* ──────────────────────────────────────────────
-   SITE DATA — grogan.dev
+   SITE DATA
    ────────────────────────────────────────────── */
 
 export const siteConfig = {
-    name: "Kennewick Web Design",
-    domain: "grogan.dev",
-    tagline: "Kennewick's Local Web Expert",
-    phone: "(509) 426-3172",
-    email: "info@grogan.dev",
+    name: site.name,
+    domain: site.url.replace(/^https?:\/\//, ""),
+    tagline: site.tagline,
+    founderName: site.founderName,
+    phone: site.phoneDisplay,
+    phoneHref: site.phoneHref,
+    email: site.email,
     address: {
-        street: "Kennewick, WA",
-        city: "Kennewick",
-        state: "WA",
-        zip: "99336",
+        street: `${site.city}, ${site.state}`,
+        city: site.city,
+        state: site.state,
+        zip: site.postalCode,
     },
     socials: {
-        facebook: "#",
-        instagram: "#",
-        linkedin: "#",
-        google: "#",
+        github: "https://github.com/ggrogan",
     },
 };
 
@@ -35,7 +36,7 @@ export const pricingFAQs: FAQ[] = [
     {
         question: "What's included in every package?",
         answer:
-            "Every package includes a custom-designed, mobile-responsive website, basic on-page SEO, SSL security, and a 30-day post-launch support window. We never use templates — everything is built from scratch for your business.",
+            "Every package includes a custom website build, mobile-responsive development, on-page SEO basics, SSL, and a 30-day post-launch support window. The difference between packages is scope, complexity, and how much strategy is included.",
     },
     {
         question: "How long does a project take?",
@@ -242,13 +243,13 @@ export const pricingPackages: PricingPackage[] = [
         popular: false,
         features: [
             "3–5 page custom website",
-            "Clean, professional template-based design",
+            "Streamlined custom design system",
             "Mobile-responsive development",
             "Basic contact form",
             "Basic on-page SEO",
             "Lighthouse performance optimization",
             "SSL security certificate",
-            "14-day post-launch support",
+            "30-day post-launch support",
         ],
         idealFor: "New businesses or landing pages needing a professional web presence fast.",
         timeline: "1–2 weeks",
@@ -294,3 +295,45 @@ export const pricingPackages: PricingPackage[] = [
         timeline: "4–6 weeks",
     },
 ];
+
+export interface PortfolioProject {
+    title: string;
+    href: string;
+    category: string;
+    summary: string;
+    highlights: string[];
+}
+
+export const portfolioProjects: PortfolioProject[] = [
+    {
+        title: "Grogan Design",
+        href: "https://grogan.design",
+        category: "Marketing Site",
+        summary:
+            "A live brand site used to showcase positioning, service offers, and product work in a clean marketing format.",
+        highlights: ["Live public site", "Messaging-led layout", "Fast static delivery"],
+    },
+    {
+        title: "XpressSkins",
+        href: "https://xpressskins.dev",
+        category: "Web Application",
+        summary:
+            "An in-progress product application that shows authenticated flows, interface design decisions, and product-focused UX work.",
+        highlights: ["Work-in-progress build", "Account-based experience", "Product UX"],
+    },
+    {
+        title: "Oniganco",
+        href: "https://oniganco.com",
+        category: "Business Site",
+        summary:
+            "A live business website built to present a clear offer, grounded brand presence, and a cleaner user journey for prospective customers.",
+        highlights: ["Live client site", "Clear positioning", "Business-focused UX"],
+    },
+];
+
+export const portfolioPageCta = {
+    title: "Need examples closer to your industry?",
+    description:
+        "If you run a contractor, professional service, restaurant, winery, or real estate business, ask during the consultation and I can walk you through the most relevant examples.",
+    href: absoluteUrl("/contact"),
+};

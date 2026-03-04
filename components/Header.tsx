@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+import { site } from "@/lib/site";
 
 const navLinks = [
-    { href: "/", label: "Home" },
     { href: "/services", label: "Services" },
-    { href: "/industries", label: "Industries" },
+    { href: "/portfolio", label: "Portfolio" },
     { href: "/pricing", label: "Pricing" },
     { href: "/about", label: "About" },
     { href: "/blog", label: "Blog" },
@@ -17,6 +18,7 @@ const navLinks = [
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,13 +37,19 @@ export default function Header() {
 
                 <nav className="desktop-nav">
                     {navLinks.map(({ href, label }) => (
-                        <Link key={href} href={href} className="nav-link">{label}</Link>
+                        <Link
+                            key={href}
+                            href={href}
+                            className={`nav-link${pathname === href ? " active" : ""}`}
+                        >
+                            {label}
+                        </Link>
                     ))}
                 </nav>
 
                 <div className="header-actions">
                     <Link href="/contact" className="btn btn-primary btn-sm header-btn">
-                        Free Audit
+                        {site.primaryCtaLabel}
                     </Link>
 
                     <button
@@ -57,6 +65,9 @@ export default function Header() {
 
             {/* Mobile Navigation Menu */}
             <div className={`mobile-nav-panel${isMenuOpen ? " open" : ""}`}>
+                <Link href="/" onClick={() => setIsMenuOpen(false)} className="mobile-nav-link">
+                    Home
+                </Link>
                 {navLinks.map(({ href, label }) => (
                     <Link key={href} href={href} onClick={() => setIsMenuOpen(false)} className="mobile-nav-link">
                         {label}

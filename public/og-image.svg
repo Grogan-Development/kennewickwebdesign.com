@@ -1,0 +1,46 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020814"/>
+      <stop offset="0.58" stop-color="#08172C"/>
+      <stop offset="1" stop-color="#10294B"/>
+    </linearGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(930 170) rotate(90) scale(220 280)">
+      <stop stop-color="#3B82F6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowGold" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(210 140) rotate(90) scale(180 240)">
+      <stop stop-color="#F59E0B" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#F59E0B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="36" y="36" width="1128" height="558" rx="28" fill="white" fill-opacity="0.03" stroke="white" stroke-opacity="0.12"/>
+  <circle cx="930" cy="170" r="220" fill="url(#glowBlue)"/>
+  <circle cx="210" cy="140" r="180" fill="url(#glowGold)"/>
+
+  <text x="72" y="112" fill="#F59E0B" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="0.28em">KENNEWICK</text>
+  <text x="315" y="112" fill="#A8B0BD" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="0.28em">WEB DESIGN</text>
+
+  <text x="72" y="220" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="700">
+    <tspan x="72" dy="0">Websites for Tri-Cities businesses</tspan>
+    <tspan x="72" dy="82">that need to look credible and convert.</tspan>
+  </text>
+
+  <text x="72" y="404" fill="#C7D0DB" font-family="Arial, Helvetica, sans-serif" font-size="29">
+    <tspan x="72" dy="0">Custom websites, SEO foundations, and ongoing support</tspan>
+    <tspan x="72" dy="42">from Kennewick, Washington.</tspan>
+  </text>
+
+  <g fill="#A8B0BD" font-family="Arial, Helvetica, sans-serif" font-size="24">
+    <text x="72" y="534">Pricing from $750</text>
+    <text x="300" y="534">30-day support</text>
+    <text x="520" y="534">Live portfolio examples</text>
+  </g>
+
+  <g fill="#D8E0EA" font-family="Arial, Helvetica, sans-serif" font-size="24" text-anchor="end">
+    <text x="1128" y="534">Zack Grogan</text>
+    <text x="1128" y="570">(509) 426-3172</text>
+  </g>
+</svg>

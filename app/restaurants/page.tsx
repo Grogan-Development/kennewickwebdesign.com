@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/restaurants" },
+    alternates: { canonical: "/restaurants" },
     title: "Restaurant Website Design — Kennewick / Tri-Cities",
     description:
         "Professional websites for Tri-Cities restaurants, cafes, and food services. Mobile-first design, online menus, and local SEO to attract more diners.",
@@ -75,7 +76,7 @@ export default function RestaurantPage() {
                     <p>Let&apos;s build a site that grows your restaurant&apos;s local foot traffic.</p>
                     <div className="btn-group" style={{ justifyContent: "center" }}>
                         <Link href="/contact" className="btn btn-accent btn-lg">
-                            Get Your Free Restaurant Site Audit <span className="icon-arrow">→</span>
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
                         </Link>
                     </div>
                 </div>

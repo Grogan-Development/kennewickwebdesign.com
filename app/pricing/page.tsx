@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FAQAccordion from "@/components/FAQAccordion";
 import { pricingPackages, pricingFAQs, managedHostingPlans } from "@/lib/data";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  alternates: { canonical: "https://grogan.dev/pricing" },
-    title: "Pricing — Website Packages",
+    alternates: { canonical: "/pricing" },
+    title: "Pricing",
     description:
-        "Clear, honest pricing for Kennewick web design. Packages starting at $1,997. No hidden fees, just lead-generating websites.",
+        "Clear website pricing for Tri-Cities businesses, with packages starting at $750 and defined differences in scope, strategy, and support.",
 };
 
 export default function PricingPage() {
@@ -19,11 +20,11 @@ export default function PricingPage() {
                 <div className="container z-above">
                     <span className="local-badge">No Hidden Fees</span>
                     <h1 className="mt-4">
-                        Clear, Honest Pricing for Tri-Cities Businesses
+                        Clear pricing for local businesses that want a real website plan.
                     </h1>
                     <p>
-                        We publish our pricing because we believe you deserve to know what
-                        you&apos;re paying for — before you pick up the phone.
+                        Each package has a clear starting point, scope, and support window.
+                        If your project does not fit neatly into one, we scope it honestly instead of forcing it.
                     </p>
                 </div>
             </section>
@@ -71,8 +72,8 @@ export default function PricingPage() {
             <section className="section" style={{ paddingTop: 0 }}>
                 <div className="container">
                     <div className="text-center" style={{ marginBottom: "var(--spacing-12)" }}>
-                        <h2>Keep It Running</h2>
-                        <p className="text-muted">Fully-managed hosting subscriptions to secure and maintain your investment.</p>
+                        <h2>Keep It Running After Launch</h2>
+                        <p className="text-muted">Managed hosting plans cover maintenance, monitoring, and support once the website is live.</p>
                     </div>
                     <div className="grid-3" style={{ alignItems: "stretch" }}>
                         {managedHostingPlans.map((plan, i) => (
@@ -116,11 +117,11 @@ export default function PricingPage() {
                     <div className="card-featured card text-center" style={{ padding: "var(--spacing-12)" }}>
                         <h2 style={{ fontSize: "var(--font-size-3xl)", marginBottom: "var(--spacing-4)" }}>Looking for a Custom Solution?</h2>
                         <p className="section-muted-text" style={{ maxWidth: 700, margin: "0 auto var(--spacing-8)" }}>
-                            Need something outside the box? Whether it&apos;s a complex web app, an e-commerce store, or a unique integration — let&apos;s talk.
+                            If you need a larger marketing site, a product flow, or a more involved integration, the next step is a scoped conversation about goals, complexity, and budget.
                         </p>
                         <div className="btn-group" style={{ justifyContent: "center" }}>
-                            <a href="tel:5094263172" className="btn btn-outline">
-                                Call (509) 426-3172
+                            <a href={`tel:${site.phoneHref}`} className="btn btn-outline">
+                                Call {site.phoneDisplay}
                             </a>
                             <Link href="/pricing/get-started?plan=custom" className="btn btn-primary">
                                 Tell Us About Your Project <span className="icon-arrow">→</span>
@@ -147,12 +148,16 @@ export default function PricingPage() {
                 <div className="container z-above">
                     <h2>Not sure which package is right for you?</h2>
                     <p>
-                        Book a free strategy call and we&apos;ll help you choose the best fit
-                        for your business goals.
+                        Book a consultation and we&apos;ll help you decide whether Starter, Growth, Premium, or a custom scope is the right fit.
                     </p>
-                    <Link href="/contact" className="btn btn-accent btn-lg">
-                        Let&apos;s Talk Strategy <span className="icon-arrow">→</span>
-                    </Link>
+                    <div className="btn-group" style={{ justifyContent: "center" }}>
+                        <Link href="/contact" className="btn btn-accent btn-lg">
+                            {site.primaryCtaLabel} <span className="icon-arrow">→</span>
+                        </Link>
+                        <Link href="/portfolio" className="btn btn-outline btn-lg">
+                            View Portfolio
+                        </Link>
+                    </div>
                 </div>
             </section>
 
