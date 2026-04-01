@@ -6,6 +6,16 @@ export const metadata: Metadata = {
     title: "Web Design in Kennewick WA — Local Kennewick Web Expert",
     description:
         "Custom web design for Kennewick businesses that need a stronger first impression, clearer messaging, and a better path to inquiry.",
+    openGraph: {
+        url: "/kennewick",
+        title: "Web Design in Kennewick WA | Kennewick Web Design",
+        description: "Custom web design for Kennewick businesses — stronger first impression, clearer messaging, and a better path to inquiry.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Web Design in Kennewick WA | Kennewick Web Design",
+        description: "Custom web design for Kennewick businesses that need a stronger first impression.",
+    },
 };
 
 export default function KennewickPage() {

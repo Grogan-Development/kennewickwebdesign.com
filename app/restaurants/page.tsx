@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "Restaurant Website Design — Kennewick / Tri-Cities",
     description:
         "Professional websites for Tri-Cities restaurants, cafes, and food services. Mobile-first design, online menus, and local SEO to attract more diners.",
+    openGraph: {
+        url: "/restaurants",
+        title: "Restaurant Website Design | Kennewick Web Design",
+        description: "Professional websites for Tri-Cities restaurants — mobile-first design, online menus, and local SEO.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Restaurant Website Design | Kennewick Web Design",
+        description: "Mobile-first websites for Tri-Cities restaurants — online menus, ordering, and local SEO.",
+    },
 };
 
 const CheckIcon = () => (

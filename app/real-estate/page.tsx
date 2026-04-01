@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "Real Estate Website Design — Kennewick / Tri-Cities",
     description:
         "Premium websites for Tri-Cities real estate agents and brokerages. IDX integration, neighborhood guides, and lead capture features.",
+    openGraph: {
+        url: "/real-estate",
+        title: "Real Estate Website Design | Kennewick Web Design",
+        description: "Premium websites for Tri-Cities real estate agents — IDX integration, neighborhood guides, and lead capture.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Real Estate Website Design | Kennewick Web Design",
+        description: "Premium websites for Tri-Cities real estate agents and brokerages.",
+    },
 };
 
 const CheckIcon = () => (

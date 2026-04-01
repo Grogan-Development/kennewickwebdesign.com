@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "E-Commerce & Booking",
     description:
         "E-commerce and booking systems for businesses that need online ordering, scheduling, or checkout flows that feel polished and easy to use.",
+    openGraph: {
+        url: "/services/ecommerce",
+        title: "E-Commerce & Booking | Kennewick Web Design",
+        description: "E-commerce and booking systems for businesses that need online ordering, scheduling, or checkout flows.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "E-Commerce & Booking | Kennewick Web Design",
+        description: "E-commerce and booking systems for Tri-Cities businesses — online ordering, scheduling, and checkout.",
+    },
 };
 
 const CheckIcon = () => (

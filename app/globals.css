@@ -46,10 +46,16 @@
   --spacing-24: 6rem;
   --spacing-32: 8rem;
 
+  /* Derived spacing (referenced elsewhere) */
+  --spacing-3: 0.75rem;
+  --spacing-10: 2.5rem;
+  --spacing-20: 5rem;
+
   /* Layout */
   --radius-md: 8px;
   --radius-lg: 16px;
   --radius-xl: 24px;
+  --radius-2xl: 32px;
   --radius-full: 9999px;
   --container-width: 1200px;
 }
@@ -2166,7 +2172,7 @@ h2 {
 
 @media (min-width: 768px) {
   .footer-grid {
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
     gap: 32px;
     text-align: left;
   }
@@ -2183,7 +2189,7 @@ h2 {
 
 @media (min-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 48px;
   }
 }

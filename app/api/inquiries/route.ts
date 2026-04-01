@@ -1,4 +1,3 @@
-import { appendFile } from "node:fs/promises";
 import { NextResponse } from "next/server";
 import { site } from "@/lib/site";
 
@@ -23,9 +22,6 @@ interface InquiryPayload {
   company?: string;
 }
 
-const deliveryUnavailableMessage =
-  "Automatic delivery is not configured yet. Use the direct email fallback below.";
-
 function normalize(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -42,113 +38,113 @@ function toTitleCase(value: string) {
     .join(" ");
 }
 
-function formatInquiry(payload: InquiryPayload) {
-  const subjectBase =
-    payload.source === "project" ? "New project inquiry" : "New contact inquiry";
-  const subject = `${site.name}: ${subjectBase} from ${payload.name}`;
-
+function buildMailto(payload: InquiryPayload) {
+  const subject = `${site.name}: New inquiry from ${payload.name}`;
   const lines = [
-    `Source: ${payload.source}`,
     `Name: ${payload.name}`,
     `Email: ${payload.email}`,
     payload.phone ? `Phone: ${payload.phone}` : "",
     payload.business ? `Business: ${payload.business}` : "",
-    payload.website ? `Website: ${payload.website}` : "",
-    payload.plan ? `Selected Plan: ${payload.plan}` : "",
-    payload.projectType ? `Project Type: ${toTitleCase(payload.projectType)}` : "",
-    payload.budget ? `Budget: ${toTitleCase(payload.budget)}` : "",
-    payload.timeline ? `Timeline: ${toTitleCase(payload.timeline)}` : "",
-    payload.page ? `Page: ${payload.page}` : "",
-    payload.referrer ? `Referrer: ${payload.referrer}` : "",
     "",
     "Message:",
     payload.message || "",
   ].filter(Boolean);
 
-  return {
-    subject,
-    text: lines.join("\n"),
-    html: `
-      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #111827;">
-        <h2 style="margin-bottom: 16px;">${subject}</h2>
-        <pre style="white-space: pre-wrap; font-family: Arial, sans-serif;">${lines.join("\n")}</pre>
-      </div>
-    `,
+  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+}
+
+async function deliverToNotion(payload: InquiryPayload) {
+  const notionApiKey = process.env.NOTION_API_KEY;
+  const notionDatabaseId = process.env.NOTION_INQUIRIES_DATABASE_ID;
+
+  if (!notionApiKey || !notionDatabaseId) return false;
+
+  const sourceLabel = payload.source === "project" ? "Project" : "Contact";
+  const now = new Date().toISOString();
+
+  const properties: Record<string, unknown> = {
+    Name: {
+      title: [{ text: { content: payload.name } }],
+    },
+    Email: {
+      email: payload.email,
+    },
+    Source: {
+      select: { name: sourceLabel },
+    },
+    Status: {
+      select: { name: "New" },
+    },
+    "Received At": {
+      date: { start: now },
+    },
   };
-}
 
-function buildMailto(payload: InquiryPayload) {
-  const { subject, text } = formatInquiry(payload);
-  return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
-}
+  if (payload.phone) {
+    properties.Phone = { phone_number: payload.phone };
+  }
+  if (payload.business) {
+    properties.Business = {
+      rich_text: [{ text: { content: payload.business } }],
+    };
+  }
+  if (payload.website) {
+    properties.Website = { url: payload.website };
+  }
+  if (payload.message) {
+    properties.Message = {
+      rich_text: [{ text: { content: payload.message.slice(0, 2000) } }],
+    };
+  }
+  if (payload.plan) {
+    properties.Plan = {
+      rich_text: [{ text: { content: payload.plan } }],
+    };
+  }
+  if (payload.projectType) {
+    properties["Project Type"] = {
+      rich_text: [{ text: { content: toTitleCase(payload.projectType) } }],
+    };
+  }
+  if (payload.budget) {
+    properties.Budget = {
+      rich_text: [{ text: { content: toTitleCase(payload.budget) } }],
+    };
+  }
+  if (payload.timeline) {
+    properties.Timeline = {
+      rich_text: [{ text: { content: toTitleCase(payload.timeline) } }],
+    };
+  }
+  if (payload.page) {
+    properties.Page = {
+      rich_text: [{ text: { content: payload.page } }],
+    };
+  }
 
-async function deliverViaWebhook(payload: InquiryPayload) {
-  const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  if (!webhookUrl) return false;
-
-  const content = formatInquiry(payload);
-  const response = await fetch(webhookUrl, {
+  const response = await fetch("https://api.notion.com/v1/pages", {
     method: "POST",
     headers: {
-      "content-type": "application/json",
+      Authorization: `Bearer ${notionApiKey}`,
+      "Content-Type": "application/json",
+      "Notion-Version": "2022-06-28",
     },
     body: JSON.stringify({
-      ...payload,
-      ...content,
-      receivedAt: new Date().toISOString(),
+      parent: { database_id: notionDatabaseId },
+      properties,
     }),
     cache: "no-store",
   });
 
   if (!response.ok) {
-    throw new Error(`Webhook delivery failed with status ${response.status}`);
+    const errorBody = await response.text();
+    throw new Error(`Notion delivery failed (${response.status}): ${errorBody}`);
   }
 
   return true;
 }
 
-async function deliverViaResend(payload: InquiryPayload) {
-  const resendApiKey = process.env.RESEND_API_KEY;
-  const resendTo = process.env.CONTACT_TO_EMAIL;
-  const resendFrom = process.env.CONTACT_FROM_EMAIL;
-
-  if (!resendApiKey || !resendTo || !resendFrom) return false;
-
-  const content = formatInquiry(payload);
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${resendApiKey}`,
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({
-      from: resendFrom,
-      to: [resendTo],
-      reply_to: payload.email,
-      subject: content.subject,
-      text: content.text,
-      html: content.html,
-    }),
-    cache: "no-store",
-  });
-
-  if (!response.ok) {
-    throw new Error(`Resend delivery failed with status ${response.status}`);
-  }
-
-  return true;
-}
-
-async function logLocally(payload: InquiryPayload) {
-  const logPath = "/tmp/kennewick-web-design-inquiries.ndjson";
-  await appendFile(
-    logPath,
-    `${JSON.stringify({ ...payload, receivedAt: new Date().toISOString() })}\n`,
-    "utf8",
-  );
-}
-
-function manualContactResponse(payload: InquiryPayload, status = 503, message = deliveryUnavailableMessage) {
+function manualContactResponse(payload: InquiryPayload, status = 503, message = "Automatic delivery is not configured. Use the direct contact options below.") {
   return NextResponse.json(
     {
       ok: false,
@@ -195,6 +191,7 @@ export async function POST(request: Request) {
     company,
   };
 
+  // Honeypot field — bots fill this, real users don't see it
   if (company) {
     return NextResponse.json({ ok: true, message: "Received." });
   }
@@ -206,32 +203,15 @@ export async function POST(request: Request) {
     );
   }
 
-  if (source === "contact" && !message) {
+  if (!message) {
     return NextResponse.json(
       { ok: false, message: "Please include a short description of your project or question." },
       { status: 400 },
     );
   }
 
-  if (source === "project" && !message) {
-    return NextResponse.json(
-      { ok: false, message: "Please describe the project before submitting." },
-      { status: 400 },
-    );
-  }
-
   try {
-    const delivered =
-      (await deliverViaWebhook(cleanedPayload)) ||
-      (await deliverViaResend(cleanedPayload));
-
-    if (!delivered && process.env.NODE_ENV !== "production") {
-      await logLocally(cleanedPayload);
-      return NextResponse.json({
-        ok: true,
-        message: "Inquiry captured locally for development.",
-      });
-    }
+    const delivered = await deliverToNotion(cleanedPayload);
 
     if (!delivered) {
       return manualContactResponse(cleanedPayload);
@@ -239,14 +219,14 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       ok: true,
-      message: "Your inquiry was delivered successfully.",
+      message: "Your inquiry was received. We'll be in touch shortly.",
     });
   } catch (error) {
     console.error("Inquiry delivery failed", error);
     return manualContactResponse(
       cleanedPayload,
       502,
-      "We could not deliver your inquiry automatically. Use the email fallback below.",
+      "We could not deliver your inquiry automatically. Use the contact options below.",
     );
   }
 }

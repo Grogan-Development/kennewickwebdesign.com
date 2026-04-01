@@ -24,6 +24,23 @@ export default function Footer() {
                     </div>
 
                     <div className="footer-column">
+                        <h4>Services</h4>
+                        <ul className="footer-links">
+                            <li><Link href="/services/web-design" className="footer-link">Web Design</Link></li>
+                            <li><Link href="/services/local-seo" className="footer-link">Local SEO</Link></li>
+                            <li><Link href="/services/managed-hosting" className="footer-link">Managed Hosting</Link></li>
+                            <li><Link href="/services/ecommerce" className="footer-link">E-Commerce &amp; Booking</Link></li>
+                        </ul>
+
+                        <h4 style={{ marginTop: 24 }}>Service Areas</h4>
+                        <ul className="footer-links">
+                            <li><Link href="/kennewick" className="footer-link">Kennewick</Link></li>
+                            <li><Link href="/pasco" className="footer-link">Pasco</Link></li>
+                            <li><Link href="/richland" className="footer-link">Richland</Link></li>
+                        </ul>
+                    </div>
+
+                    <div className="footer-column">
                         <h4>Industries</h4>
                         <ul className="footer-links">
                             <li><Link href="/web-design-for-contractors" className="footer-link">Contractors &amp; Home Services</Link></li>

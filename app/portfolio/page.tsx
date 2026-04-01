@@ -8,6 +8,18 @@ export const metadata: Metadata = {
   title: "Portfolio",
   description:
     "Review live example sites and product work from Kennewick Web Design. See how messaging, structure, and UX are handled on real public builds.",
+  openGraph: {
+    url: "/portfolio",
+    title: "Portfolio | Kennewick Web Design",
+    description:
+      "Review live example sites and product work from Kennewick Web Design. See how messaging, structure, and UX are handled on real public builds.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio | Kennewick Web Design",
+    description:
+      "Live example sites from Kennewick Web Design — see how messaging, structure, and UX are handled.",
+  },
 };
 
 const reviewPoints = [
@@ -40,7 +52,7 @@ export default function PortfolioPage() {
               <article key={project.href} className="card card-flex portfolio-card">
                 <div className="portfolio-card-top">
                   <span className="local-badge" style={{ marginBottom: 0 }}>{project.category}</span>
-                  <a href={project.href} target="_blank" rel="noreferrer" className="btn btn-outline btn-sm">
+                  <a href={project.href} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">
                     Visit Live Site
                   </a>
                 </div>

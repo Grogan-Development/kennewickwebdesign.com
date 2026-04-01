@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "Winery & Tasting Room Website Design — Tri-Cities / Kennewick",
     description:
         "Elegant websites for Tri-Cities wineries and tasting rooms. Online reservations, event calendars, wine club signups — from a local Kennewick web expert.",
+    openGraph: {
+        url: "/winery-website-design",
+        title: "Winery & Tasting Room Website Design | Kennewick Web Design",
+        description: "Elegant websites for Tri-Cities wineries and tasting rooms — online reservations, event calendars, and wine club signups.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Winery Website Design | Kennewick Web Design",
+        description: "Elegant websites for Tri-Cities wineries — reservations, events, and wine club signups.",
+    },
 };
 
 const CheckIcon = () => (

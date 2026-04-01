@@ -7,6 +7,18 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn how Zack Grogan runs Kennewick Web Design: direct communication, transparent pricing, and websites built for local businesses that need to convert.",
+  openGraph: {
+    url: "/about",
+    title: "About | Kennewick Web Design",
+    description:
+      "Learn how Zack Grogan runs Kennewick Web Design: direct communication, transparent pricing, and websites built for local businesses that need to convert.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About | Kennewick Web Design",
+    description:
+      "Direct communication, transparent pricing, and websites built for Tri-Cities businesses that need to convert.",
+  },
 };
 
 const principles = [

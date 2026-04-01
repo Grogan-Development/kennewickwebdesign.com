@@ -3,6 +3,7 @@ import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { absoluteUrl, site } from "@/lib/site";
 
 const outfit = Outfit({
@@ -146,13 +147,26 @@ const serviceSchema = {
   },
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: site.url,
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${outfit.variable} ${jakarta.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -166,16 +180,15 @@ export default function RootLayout({
             __html: JSON.stringify(serviceSchema),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbSchema),
+          }}
+        />
       </head>
       <body>
-        <style dangerouslySetInnerHTML={{
-          __html: `
-            :root {
-              --font-jakarta: ${jakarta.style.fontFamily};
-              --font-outfit: ${outfit.style.fontFamily};
-            }
-          `
-        }} />
+        <GoogleAnalytics />
         <a href="#main-content" className="skip-to-content">Skip to content</a>
         <Header />
         <main id="main-content">{children}</main>

@@ -8,6 +8,18 @@ export const metadata: Metadata = {
     title: "Contact",
     description:
         "Get in touch to discuss a new website, redesign, local SEO work, or ongoing support for your Tri-Cities business.",
+    openGraph: {
+        url: "/contact",
+        title: "Contact | Kennewick Web Design",
+        description:
+            "Get in touch to discuss a new website, redesign, local SEO work, or ongoing support for your Tri-Cities business.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact | Kennewick Web Design",
+        description:
+            "Reach out about a new site, redesign, or local SEO for your Tri-Cities business.",
+    },
 };
 
 export default function ContactPage() {

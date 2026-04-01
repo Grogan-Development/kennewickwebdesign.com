@@ -8,6 +8,16 @@ export const metadata: Metadata = {
     title: "Industries We Serve",
     description:
         "We specialize in web design for Kennewick contractors, Tri-Cities wineries, and healthcare practices.",
+    openGraph: {
+        url: "/industries",
+        title: "Industries We Serve | Kennewick Web Design",
+        description: "Web design for Kennewick contractors, Tri-Cities wineries, healthcare practices, restaurants, real estate, and professional services.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Industries We Serve | Kennewick Web Design",
+        description: "Specialized web design for Tri-Cities contractors, wineries, healthcare, restaurants, and more.",
+    },
 };
 
 export default function IndustriesPage() {

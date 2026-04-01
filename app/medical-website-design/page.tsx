@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "Medical & Dental Website Design — Kennewick / Tri-Cities",
     description:
         "Professional websites for healthcare and dental practices that need clearer trust signals, cleaner information architecture, and easy appointment flows.",
+    openGraph: {
+        url: "/medical-website-design",
+        title: "Medical & Dental Website Design | Kennewick Web Design",
+        description: "Professional websites for healthcare and dental practices — clearer trust signals, cleaner architecture, and easy appointment flows.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Medical Website Design | Kennewick Web Design",
+        description: "Professional websites for Tri-Cities healthcare and dental practices.",
+    },
 };
 
 const CheckIcon = () => (

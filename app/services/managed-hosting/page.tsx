@@ -8,6 +8,16 @@ export const metadata: Metadata = {
     title: "Managed Hosting",
     description:
         "Managed hosting for websites that need updates, monitoring, and ongoing support after launch.",
+    openGraph: {
+        url: "/services/managed-hosting",
+        title: "Managed Hosting | Kennewick Web Design",
+        description: "Managed hosting for websites that need updates, monitoring, and ongoing support after launch.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Managed Hosting | Kennewick Web Design",
+        description: "Managed hosting with updates, monitoring, and ongoing support after launch.",
+    },
 };
 
 const CheckIcon = () => (

@@ -6,6 +6,16 @@ export const metadata: Metadata = {
     title: "Web Design in Richland WA — Tri-Cities Website Design",
     description:
         "Custom web design for Richland businesses that need a more credible site, better structure, and stronger local visibility.",
+    openGraph: {
+        url: "/richland",
+        title: "Web Design in Richland WA | Kennewick Web Design",
+        description: "Custom web design for Richland businesses — more credible site, better structure, and stronger local visibility.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Web Design in Richland WA | Kennewick Web Design",
+        description: "Custom web design for Richland businesses that need stronger local visibility.",
+    },
 };
 
 export default function RichlandPage() {

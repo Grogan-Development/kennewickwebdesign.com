@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "Web Design for Contractors — Kennewick & Tri-Cities",
     description:
         "Web design for Kennewick and Tri-Cities contractors who need a more professional website, stronger trust signals, and clearer lead flow.",
+    openGraph: {
+        url: "/web-design-for-contractors",
+        title: "Web Design for Contractors | Kennewick Web Design",
+        description: "Web design for Kennewick and Tri-Cities contractors who need a more professional website, stronger trust signals, and clearer lead flow.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Web Design for Contractors | Kennewick Web Design",
+        description: "Professional websites for Tri-Cities contractors — stronger trust signals and clearer lead flow.",
+    },
 };
 
 const CheckIcon = () => (

@@ -239,7 +239,7 @@ export default function Home() {
                   <a
                     href={project.href}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="btn btn-outline btn-sm"
                   >
                     Visit Site
@@ -357,17 +357,22 @@ export default function Home() {
                   <p style={{ color: "var(--color-text-muted)", fontSize: "var(--font-size-xs)", marginTop: 8 }}>{plan.priceNote}</p>
                 </div>
                 <ul className="pricing-feature-list">
-                  {plan.features.slice(0, 4).map((feature, index) => (
+                  {plan.features.slice(0, 6).map((feature, index) => (
                     <li
                       key={feature}
                       className="pricing-feature"
-                      style={index === 3 ? { borderBottom: "none" } : undefined}
+                      style={index === 5 ? { borderBottom: "none" } : undefined}
                     >
                       <span className="check" aria-hidden="true">✓</span>
                       {feature}
                     </li>
                   ))}
                 </ul>
+                {plan.features.length > 6 && (
+                  <p style={{ fontSize: "var(--font-size-xs)", color: "var(--color-text-dim)", marginBottom: 12 }}>
+                    + {plan.features.length - 6} more on the pricing page
+                  </p>
+                )}
                 <p className="card-text" style={{ marginTop: "auto", marginBottom: 20 }}>
                   Typical timeline: {plan.timeline}
                 </p>

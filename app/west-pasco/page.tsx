@@ -6,6 +6,16 @@ export const metadata: Metadata = {
     title: "Web Design in West Pasco WA — Your Local Web Expert",
     description:
         "Custom web design serving West Pasco businesses that need better credibility online, clearer messaging, and a direct local partner.",
+    openGraph: {
+        url: "/west-pasco",
+        title: "Web Design in West Pasco WA | Kennewick Web Design",
+        description: "Custom web design for West Pasco businesses — better credibility online and a direct local partner.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Web Design in West Pasco WA | Kennewick Web Design",
+        description: "Custom web design for West Pasco businesses from your local neighbor.",
+    },
 };
 
 export default function WestPascoPage() {

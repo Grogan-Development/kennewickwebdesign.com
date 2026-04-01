@@ -8,6 +8,18 @@ export const metadata: Metadata = {
     title: "Blog — Web Design & SEO Tips for Kennewick Businesses",
     description:
         "Web design, SEO, and digital marketing tips for Kennewick & Tri-Cities businesses. Actionable advice from your local web expert.",
+    openGraph: {
+        url: "/blog",
+        title: "Blog — Web Design & SEO Tips for Kennewick Businesses",
+        description:
+            "Web design, SEO, and digital marketing tips for Kennewick & Tri-Cities businesses. Actionable advice from your local web expert.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Blog — Web Design & SEO Tips | Kennewick Web Design",
+        description:
+            "Actionable web design, SEO, and marketing tips for Tri-Cities businesses.",
+    },
 };
 
 export default function BlogPage() {

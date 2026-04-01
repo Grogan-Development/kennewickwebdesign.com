@@ -9,11 +9,38 @@ export const metadata: Metadata = {
     title: "Pricing",
     description:
         "Clear website pricing for Tri-Cities businesses, with packages starting at $750 and defined differences in scope, strategy, and support.",
+    openGraph: {
+        url: "/pricing",
+        title: "Pricing | Kennewick Web Design",
+        description: "Clear website pricing for Tri-Cities businesses — packages starting at $750 with defined scope, strategy, and support.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Pricing | Kennewick Web Design",
+        description: "Clear website pricing starting at $750 for Tri-Cities businesses.",
+    },
+};
+
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: pricingFAQs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+        },
+    })),
 };
 
 export default function PricingPage() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            />
             <section className="page-hero">
                 <div className="bg-grid"></div>
                 <div className="aurora-glow" style={{ top: "0%", left: "50%", transform: "translateX(-50%)", opacity: 0.4 }}></div>

@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "Professional Services Web Design — Kennewick / Tri-Cities",
     description:
         "Custom websites for Tri-Cities law firms, accountants, consultants, and B2B professionals. Authority-building design and local SEO.",
+    openGraph: {
+        url: "/professional-services",
+        title: "Professional Services Web Design | Kennewick Web Design",
+        description: "Custom websites for Tri-Cities law firms, accountants, consultants, and B2B professionals.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Professional Services Web Design | Kennewick Web Design",
+        description: "Authority-building websites for Tri-Cities law firms, accountants, and consultants.",
+    },
 };
 
 const CheckIcon = () => (

@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     title: "Local SEO",
     description:
         "Local SEO support for Tri-Cities businesses, including on-page improvements, Google Business Profile work, and local search foundations.",
+    openGraph: {
+        url: "/services/local-seo",
+        title: "Local SEO | Kennewick Web Design",
+        description: "Local SEO support for Tri-Cities businesses, including on-page improvements, Google Business Profile work, and local search foundations.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Local SEO | Kennewick Web Design",
+        description: "Local SEO for Tri-Cities businesses — on-page improvements, Google Business Profile, and local search foundations.",
+    },
 };
 
 const CheckIcon = () => (

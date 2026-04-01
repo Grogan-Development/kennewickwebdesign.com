@@ -6,6 +6,16 @@ export const metadata: Metadata = {
     title: "Web Design in Pasco WA — Tri-Cities Website Design",
     description:
         "Custom web design for Pasco businesses that need stronger credibility online, clearer messaging, and a better local search foundation.",
+    openGraph: {
+        url: "/pasco",
+        title: "Web Design in Pasco WA | Kennewick Web Design",
+        description: "Custom web design for Pasco businesses — stronger credibility online, clearer messaging, and better local search.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Web Design in Pasco WA | Kennewick Web Design",
+        description: "Custom web design for Pasco businesses that need stronger online credibility.",
+    },
 };
 
 export default function PascoPage() {

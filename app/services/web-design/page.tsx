@@ -8,6 +8,18 @@ export const metadata: Metadata = {
     title: "Web Design",
     description:
         "Custom web design for Tri-Cities businesses that need a more credible website, stronger messaging, and a cleaner path to inquiry.",
+    openGraph: {
+        url: "/services/web-design",
+        title: "Web Design | Kennewick Web Design",
+        description:
+            "Custom web design for Tri-Cities businesses that need a more credible website, stronger messaging, and a cleaner path to inquiry.",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Web Design | Kennewick Web Design",
+        description:
+            "Custom web design for Tri-Cities businesses — stronger messaging and a cleaner path to inquiry.",
+    },
 };
 
 const CheckIcon = () => (
